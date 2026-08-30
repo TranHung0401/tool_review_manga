@@ -1,7 +1,7 @@
 """OCR extraction engine adapter using RapidOCR."""
 
-from datetime import datetime, timezone
 import hashlib
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
