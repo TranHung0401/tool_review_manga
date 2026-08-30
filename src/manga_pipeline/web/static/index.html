@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangaRecap Studio — Data-Grid Centric Pipeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-app: #0d1117;
+      --bg-panel: #161b22;
+      --bg-toolbar: #1c2128;
+      --bg-row-hover: #21262d;
+      --bg-row-selected: rgba(56, 189, 248, 0.15);
+      --border-color: #30363d;
+      --border-active: #38bdf8;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --accent-blue: #38bdf8;
+      --accent-green: #34d399;
+      --accent-amber: #fbbf24;
+      --accent-purple: #c084fc;
+      --accent-red: #f87171;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-app);
+      color: var(--text-main);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    /* 1. TOP MENU BAR */
+    .top-menubar {
+      background: #090d13;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      padding: 0 0.75rem;
+      height: 32px;
+      font-size: 0.8rem;
+    }
+    .menu-brand {
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-right: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .menu-item {
+      position: relative;
+      padding: 0.25rem 0.6rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      border-radius: 4px;
+    }
+    .menu-item:hover { color: var(--text-main); background: var(--bg-row-hover); }
+    .menu-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-toolbar);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      z-index: 1000;
+      padding: 0.3rem 0;
+    }
+    .menu-item:hover .menu-dropdown { display: block; }
+    .dropdown-option {
+      padding: 0.4rem 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-main);
+      font-size: 0.75rem;
+    }
+    .dropdown-option:hover { background: var(--accent-blue); color: #000; }
+    .dropdown-shortcut { color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+    /* 2. MAIN TOOLBAR */
+    .main-toolbar {
+      background: var(--bg-toolbar);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.4rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      height: 48px;
+    }
+    .toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn {
+      background: var(--bg-panel);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s;
+    }
+    .btn:hover { background: var(--bg-row-hover); border-color: var(--text-muted); }
+    .btn-primary { background: linear-gradient(135deg, #0284c7, #2563eb); border: none; color: #fff; }
+    .btn-success { background: linear-gradient(135deg, #059669, #10b981); border: none; color: #fff; }
+    .btn-warning { background: linear-gradient(135deg, #d97706, #f59e0b); border: none; color: #000; }
+
+    /* Mode Switch Toggle */
+    .mode-switch {
+      display: flex;
+      background: #090d13;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 2px;
+    }
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .mode-btn.active {
+      background: var(--accent-blue);
+      color: #000;
+    }
+
+    /* 3. MAIN WORKSPACE CONTAINER (GRID + CONTEXT TABS) */
+    .workspace-container {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* DATA GRID AREA (70%) */
+    .grid-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border-color);
+      background: var(--bg-app);
+      overflow: hidden;
+    }
+    .grid-header-actions {
+      padding: 0.4rem 0.75rem;
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+    .grid-table-wrapper {
+      flex: 1;
+      overflow: auto;
+    }
+    table.data-grid {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      text-align: left;
+    }
+    table.data-grid th {
+      background: #11161d;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    table.data-grid td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      vertical-align: top;
+    }
+    table.data-grid tr.row-item {
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    table.data-grid tr.row-item:hover {
+      background: var(--bg-row-hover);
+    }
+    table.data-grid tr.row-item.selected {
+      background: var(--bg-row-selected);
+      border-left: 3px solid var(--accent-blue);
+    }
+
+    .thumbnail-box {
+      width: 90px;
+      height: 60px;
+      background: #000;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .thumbnail-box canvas {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .cell-editable {
+      min-height: 48px;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 0.35rem;
+      font-family: inherit;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      width: 100%;
+      resize: vertical;
+    }
+    .cell-editable:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      background: rgba(0,0,0,0.5);
+    }
+    .cell-editable.dirty {
+      border-color: var(--accent-amber);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.4rem;
+      font-size: 0.7rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+    }
+    .badge-blue { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+    .badge-green { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); }
+    .badge-purple { background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); }
+
+    /* CONTEXT TABS SIDEBAR (30%) */
+    .sidebar-tabs {
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-panel);
+    }
+    .sidebar-tab-nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: #11161d;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .tab-header-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.6rem 0.2rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      border-bottom: 2px solid transparent;
+    }
+    .tab-header-btn.active {
+      color: var(--accent-blue);
+      border-bottom-color: var(--accent-blue);
+      background: var(--bg-panel);
+    }
+    .sidebar-tab-content {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: none;
+    }
+    .sidebar-tab-content.active { display: block; }
+
+    .control-group {
+      margin-bottom: 1.25rem;
+    }
+    .control-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .form-input {
+      width: 100%;
+      background: #0d1117;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 0.45rem 0.65rem;
+      color: var(--text-main);
+      font-size: 0.8rem;
+    }
+    .form-input:focus { outline: none; border-color: var(--accent-blue); }
+
+    /* 4. CONTEXT MENU (CHUỘT PHẢI) */
+    .context-menu {
+      display: none;
+      position: absolute;
+      background: #1f242c;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      min-width: 220px;
+      z-index: 2000;
+      padding: 0.35rem 0;
+    }
+    .context-item {
+      padding: 0.45rem 1rem;
+      font-size: 0.78rem;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .context-item:hover { background: var(--accent-blue); color: #000; }
+    .context-item:hover .dropdown-shortcut { color: #000; }
+    .context-divider { height: 1px; background: var(--border-color); margin: 0.3rem 0; }
+
+    /* 5. MODAL POPUP */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-backdrop.active { display: flex; }
+    .modal-box {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+      overflow: hidden;
+    }
+    .modal-header {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+    .modal-body {
+      padding: 1.25rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .modal-footer {
+      padding: 0.75rem 1.25rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+
+    /* FOOTER STATUS BAR */
+    .statusbar {
+      height: 24px;
+      background: #090d13;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0.75rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;">
+
+  <!-- 1. TOP MENU BAR -->
+  <header class="top-menubar">
+    <div class="menu-brand">
+      <span>🎬 MangaRecap Studio</span>
+      <span class="badge badge-green" style="font-size:0.65rem;">Data-Grid Active</span>
+    </div>
+    <div class="menu-item">
+      <span>Tệp (File)</span>
+      <div class="menu-dropdown">
+        <div class="dropdown-option" onclick="openModal('modal-import')"><span>📂 Nhập Manga / Tạo Chapter Mới...</span><span class="dropdown-shortcut">Ctrl+O</span></div>
+        <div class="dropdown-option" onclick="refreshGridData()"><span>Tải Lại Dữ Liệu</span><span class="dropdown-shortcut">F5</span></div>
+        <div class="dropdown-option" onclick="saveAllGridOverrides()"><span>Lưu Dự Án</span><span class="dropdown-shortcut">Ctrl+S</span></div>
+        <div class="context-divider"></div>
+        <div class="dropdown-option" onclick="exportCapCut()"><span>Xuất Sang CapCut</span><span class="dropdown-shortcut">Ctrl+E</span></div>
+      </div>
+    </div>
+    <div class="menu-item">
+      <span>Cài Đặt (Settings)</span>
+      <div class="menu-dropdown">
+        <div class="dropdown-option" onclick="openModal('modal-settings')"><span>Tùy Chọn Hệ Thống...</span></div>
+        <div class="dropdown-option" onclick="openModal('modal-hotkeys')"><span>Bảng Phím Tắt...</span></div>
+      </div>
+    </div>
+    <div class="menu-item">
+      <span>Công Cụ (Tools)</span>
+      <div class="menu-dropdown">
+        <div class="dropdown-option" onclick="runStage('layout')"><span>Phát Hiện Khung Tranh (Layout)</span></div>
+        <div class="dropdown-option" onclick="runStage('ocr')"><span>Trích Xuất Chữ (AI Vision)</span></div>
+        <div class="dropdown-option" onclick="runStage('script')"><span>Tạo Kịch Bản (Script)</span></div>
+        <div class="dropdown-option" onclick="runStage('tts')"><span>Lồng Tiếng (TTS)</span></div>
+        <div class="context-divider"></div>
+        <div class="dropdown-option" onclick="autoAudioSync()"><span>Tính Năng Sắp Xếp (Audio Sync)</span></div>
+      </div>
+    </div>
+    <div class="menu-item">
+      <span>Trợ Giúp</span>
+      <div class="menu-dropdown">
+        <div class="dropdown-option" onclick="openModal('modal-hotkeys')"><span>Hướng Dẫn Phím Tắt</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. MAIN TOOLBAR -->
+  <div class="main-toolbar">
+    <div class="toolbar-group">
+      <!-- CHAPTER SELECTOR & IMPORT -->
+      <div style="display:flex; align-items:center; gap:0.4rem; background:#11151c; border:1px solid var(--border-color); border-radius:6px; padding:0.2rem 0.5rem;">
+        <span style="font-size:0.75rem; color:var(--text-muted);">📖 Chapter:</span>
+        <select id="toolbar-chapter-selector" class="form-input" style="width:130px; padding:0.2rem 0.4rem; font-size:0.8rem; font-weight:600; color:var(--accent-blue);" onchange="switchChapter(this.value)">
+          <option value="ch_sample" selected>ch_sample</option>
+        </select>
+        <button class="btn btn-primary" style="padding:0.2rem 0.55rem; font-size:0.75rem;" onclick="openModal('modal-import')" title="Nhập folder manga hoặc tải ảnh lên">📂 Nhập Manga</button>
+      </div>
+
+      <div style="height:20px; width:1px; background:var(--border-color); margin:0 0.25rem;"></div>
+
+      <button class="btn btn-primary" onclick="runStage('run_all')" title="Chạy toàn bộ pipeline">▶ Chạy Toàn Bộ</button>
+      <button class="btn" onclick="saveAllGridOverrides()" title="Lưu toàn bộ chỉnh sửa (Ctrl+S)">💾 Lưu (Ctrl+S)</button>
+      <button class="btn" onclick="switchContextTab('tab-search')" title="Tìm kiếm & lọc nhanh (Ctrl+F)">🔍 Tìm Kiếm (Ctrl+F)</button>
+      
+      <!-- MODE SWITCH: ROW MODE VS CELL MODE -->
+      <div class="mode-switch">
+        <button class="mode-btn active" id="btn-mode-row" onclick="setInteractionMode('row')">🔘 Chế độ Hàng (Row)</button>
+        <button class="mode-btn" id="btn-mode-cell" onclick="setInteractionMode('cell')">🔲 Chế độ Ô (Cell)</button>
+      </div>
+    </div>
+
+    <div class="toolbar-group">
+      <button class="btn btn-warning" onclick="openModal('modal-canvas')" title="Xem & Vẽ khung BBox thủ công">🖼️ Vẽ Khung BBox</button>
+      <button class="btn btn-success" onclick="exportCapCut()" title="Xuất trọn bộ bundle sang CapCut PC">📦 Xuất CapCut</button>
+      <button class="btn" onclick="openModal('modal-video')" title="Xem video MP4 đã render">🎬 Video Preview</button>
+    </div>
+  </div>
+
+  <!-- 3. MAIN WORKSPACE CONTAINER -->
+  <div class="workspace-container">
+    
+    <!-- LEFT 70%: DATA GRID TABLE -->
+    <div class="grid-container">
+      <div class="grid-header-actions">
+        <div>
+          <span>Chapter: <strong style="color:var(--accent-blue);" id="current-chapter-display">ch_sample</strong></span>
+          <span style="margin-left:1rem; color:var(--text-muted);" id="grid-stats-display">Đang tải dữ liệu bảng...</span>
+        </div>
+        <div style="display:flex; gap:0.5rem;">
+          <button class="btn" style="padding:0.2rem 0.5rem; font-size:0.7rem;" onclick="moveSelectedRows(-1)" title="Alt+1">▲ Lên (Alt+1)</button>
+          <button class="btn" style="padding:0.2rem 0.5rem; font-size:0.7rem;" onclick="moveSelectedRows(1)" title="Alt+2">▼ Xuống (Alt+2)</button>
+          <button class="btn" style="padding:0.2rem 0.5rem; font-size:0.7rem;" onclick="deleteSelectedRows()" title="Delete">🗑️ Xóa (Del)</button>
+        </div>
+      </div>
+
+      <div class="grid-table-wrapper" id="grid-table-wrapper">
+        <table class="data-grid">
+          <thead>
+            <tr>
+              <th style="width:36px; text-align:center;"><input type="checkbox" id="chk-select-all" onchange="toggleSelectAll(this.checked)"></th>
+              <th style="width:48px; text-align:center;">#</th>
+              <th style="width:105px;">Ảnh Panel</th>
+              <th style="width:25%;">Text Gốc (OCR)</th>
+              <th style="width:35%;">Text Dịch / Kịch Bản (Chỉnh Sửa)</th>
+              <th style="width:140px;">Giọng Đọc (TTS)</th>
+              <th style="width:100px;">Hiệu Ứng In/Out</th>
+              <th style="width:110px;">Keyframe</th>
+            </tr>
+          </thead>
+          <tbody id="grid-tbody">
+            <!-- Dynamic Grid Rows Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- RIGHT 30%: CONTEXT TABS SIDEBAR -->
+    <div class="sidebar-tabs">
+      <div class="sidebar-tab-nav">
+        <button class="tab-header-btn active" onclick="switchContextTab('tab-crop')">📐 Khung Truyện</button>
+        <button class="tab-header-btn" onclick="switchContextTab('tab-ocr')">🔍 AI Vision</button>
+        <button class="tab-header-btn" onclick="switchContextTab('tab-script')">📝 Kịch Bản</button>
+      </div>
+      <div class="sidebar-tab-nav" style="border-top:1px solid var(--border-color);">
+        <button class="tab-header-btn" onclick="switchContextTab('tab-tts')">🎙️ Âm Thanh</button>
+        <button class="tab-header-btn" onclick="switchContextTab('tab-effects')">🎭 Keyframe</button>
+        <button class="tab-header-btn" onclick="switchContextTab('tab-search')">🔎 Tìm Kiếm</button>
+      </div>
+
+      <!-- TAB 1: THAO TÁC KHUNG TRUYỆN -->
+      <div class="sidebar-tab-content active" id="tab-crop">
+        <div class="control-group">
+          <label class="control-label">Phát Hiện & Cắt Khung Tự Động (Smart Cropping)</label>
+          <button class="btn btn-primary" style="width:100%; margin-bottom:0.5rem;" onclick="runStage('layout')">⚡ Chạy Phát Hiện Khung (Layout)</button>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Margin Cắt Viền (px)</label>
+          <input type="number" class="form-input" id="cfg-crop-margin" value="-15">
+          <span style="font-size:0.7rem; color:var(--text-muted);">-15px giúp tự động lọc bỏ viền đen/trắng thừa.</span>
+        </div>
+        <div class="control-group">
+          <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.75rem; cursor:pointer;">
+            <input type="checkbox" id="cfg-auto-fullwidth" checked>
+            <span>Tự động full chiều rộng khi vẽ khung</span>
+          </label>
+        </div>
+        <div class="control-group">
+          <button class="btn btn-warning" style="width:100%;" onclick="openModal('modal-canvas')">✏️ Mở Trình Vẽ Khung Tay (Right-click Drag)</button>
+        </div>
+      </div>
+
+      <!-- TAB 2: AI VISION & OCR -->
+      <div class="sidebar-tab-content" id="tab-ocr">
+        <div class="control-group">
+          <label class="control-label">Trích Xuất Chữ Từ Ảnh (OCR)</label>
+          <button class="btn btn-primary" style="width:100%; margin-bottom:0.5rem;" onclick="runStage('ocr')">🔍 Chạy AI Vision OCR</button>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Lọc & Dọn Rác Văn Bản</label>
+          <button class="btn" style="width:100%; margin-bottom:0.5rem;" onclick="selectEmptyTextRows()">🚫 Chọn Các Hàng Không Có Chữ</button>
+          <span style="font-size:0.7rem; color:var(--text-muted);">Tự động chọn các khung ảnh phong cảnh không có text để xóa nhanh bằng phím Delete.</span>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Xử Lý Text Nhanh</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.4rem;">
+            <button class="btn" onclick="formatSelectedTexts('capitalize')">Viết Hoa Đầu</button>
+            <button class="btn" onclick="formatSelectedTexts('lowercase')">Viết Thường</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: DỊCH & KỊCH BẢN -->
+      <div class="sidebar-tab-content" id="tab-script">
+        <div class="control-group">
+          <label class="control-label">Tạo Kịch Bản (Script Stage)</label>
+          <button class="btn btn-primary" style="width:100%; margin-bottom:0.5rem;" onclick="runStage('script')">📝 Tạo / Làm Mới Kịch Bản</button>
+          <button class="btn btn-warning" style="width:100%;" onclick="resetScriptToDefault()">🔄 Khôi Phục Kịch Bản Gốc (Từ OCR)</button>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Dịch & Viết Lại Kịch Bản</label>
+          <input type="text" class="form-input" id="script-prompt-style" placeholder="Phong cách: Hài hước, súc tích..." value="Dịch theo phong cách kịch tính, lôi cuốn">
+          <button class="btn btn-success" style="width:100%; margin-top:0.5rem;" onclick="applyStyleToSelectedRows()">✨ Áp Dụng Phong Cách Lên Dòng Chọn</button>
+        </div>
+      </div>
+
+      <!-- TAB 4: TẠO ÂM THANH (TTS) -->
+      <div class="sidebar-tab-content" id="tab-tts">
+        <div class="control-group">
+          <label class="control-label">Giọng Đọc (Vietnamese Neural Voice)</label>
+          <select class="form-input" id="tts-voice-select">
+            <option value="vi-VN-HoaiMyNeural" selected>Hoài My (Nữ - Truyền Cảm)</option>
+            <option value="vi-VN-NamMinhNeural">Nam Minh (Nam - Trầm Ấm)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Tốc Độ Đọc</label>
+          <select class="form-input" id="tts-speed-select">
+            <option value="+0%">Bình Thường (100%)</option>
+            <option value="+10%">Nhanh Vừa (+10%)</option>
+            <option value="+20%">Nhanh (+20%)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <button class="btn btn-primary" style="width:100%; margin-bottom:0.5rem;" onclick="runStage('tts')">🎙️ Tổng Hợp Toàn Bộ Âm Thanh</button>
+          <button class="btn btn-warning" style="width:100%;" onclick="autoAudioSync()">⏱️ Sắp Xếp / Đồng Bộ Timeline</button>
+        </div>
+      </div>
+
+      <!-- TAB 5: HIỆU ỨNG & KEYFRAME -->
+      <div class="sidebar-tab-content" id="tab-effects">
+        <div class="control-group">
+          <label class="control-label">Hiệu Ứng Chuyển Động (Keyframe Zoom/Pan)</label>
+          <select class="form-input" id="select-active-template">
+            <option value="tpl_slow_zoom">Zoom In Nhẹ (Slow Zoom)</option>
+            <option value="tpl_zoom_out">Zoom Out</option>
+            <option value="tpl_pan_left">Pan Trái (Pan Left)</option>
+            <option value="tpl_pan_right">Pan Phải (Pan Right)</option>
+            <option value="tpl_fade">Fade In/Out</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label class="control-label">4 Chế Độ Áp Dụng Hàng Loạt (Bulk Apply)</label>
+          <div style="display:grid; grid-template-columns:1fr; gap:0.4rem;">
+            <button class="btn" onclick="applyEffectBulk('selected')">1. Áp dụng cho các dòng ĐANG CHỌN</button>
+            <button class="btn" onclick="applyEffectBulk('all')">2. Áp dụng cho TẤT CẢ các dòng</button>
+            <button class="btn" onclick="applyEffectBulk('random_selected')">3. Ngẫu nhiên cho dòng ĐANG CHỌN</button>
+            <button class="btn btn-success" onclick="applyEffectBulk('random_all')">4. 🎲 Ngẫu nhiên TOÀN BỘ BẢNG</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 6: TÌM KIẾM NHANH -->
+      <div class="sidebar-tab-content" id="tab-search">
+        <div class="control-group">
+          <label class="control-label">Tìm Kiếm Trong Kịch Bản</label>
+          <input type="text" class="form-input" id="search-keyword" placeholder="Nhập từ khóa..." oninput="filterGridRows()">
+        </div>
+        <div class="control-group">
+          <label class="control-label">Thay Thế Bằng</label>
+          <input type="text" class="form-input" id="replace-keyword" placeholder="Từ thay thế...">
+          <button class="btn btn-warning" style="width:100%; margin-top:0.4rem;" onclick="replaceTextInGrid()">Thay Thế Hàng Loạt</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STATUS BAR -->
+  <footer class="statusbar">
+    <div id="status-left">Sẵn sàng. Phím tắt: [Alt+1/2: Di chuyển] [Alt+3: Gộp] [Del: Xóa] [Ctrl+S: Lưu]</div>
+    <div id="status-right">MangaRecap v5.0 Parity Architecture</div>
+  </footer>
+
+  <!-- CONTEXT MENU (CHUỘT PHẢI) -->
+  <div class="context-menu" id="grid-context-menu">
+    <div id="menu-items-row-mode">
+      <div class="context-item" onclick="moveSelectedRows(-1)"><span>Di chuyển lên</span><span class="dropdown-shortcut">Alt+1</span></div>
+      <div class="context-item" onclick="moveSelectedRows(1)"><span>Di chuyển xuống</span><span class="dropdown-shortcut">Alt+2</span></div>
+      <div class="context-item" onclick="deleteSelectedRows()"><span>Xóa dòng</span><span class="dropdown-shortcut">Del</span></div>
+      <div class="context-divider"></div>
+      <div class="context-item" onclick="runStage('ocr')"><span>AI Vision (OCR dòng này)</span></div>
+      <div class="context-item" onclick="applyEffectBulk('random_selected')"><span>Áp dụng hiệu ứng ngẫu nhiên</span></div>
+    </div>
+    <div id="menu-items-cell-mode" style="display:none;">
+      <div class="context-item" onclick="formatSelectedTexts('capitalize')"><span>Viết hoa đầu câu</span></div>
+      <div class="context-item" onclick="formatSelectedTexts('lowercase')"><span>Viết thường toàn bộ</span></div>
+      <div class="context-item" onclick="formatSelectedTexts('trim')"><span>Xóa khoảng trắng thừa</span></div>
+    </div>
+  </div>
+
+  <!-- MODAL 0: IMPORT MANGA / CHAPTER -->
+  <div class="modal-backdrop" id="modal-import">
+    <div class="modal-box" style="max-width:650px;">
+      <div class="modal-header">
+        <span>📂 Nhập Manga / Tạo Chapter Mới</span>
+        <button class="btn" onclick="closeModal('modal-import')">✕ Đóng</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; gap:0.5rem; margin-bottom:1rem; border-bottom:1px solid var(--border-color); padding-bottom:0.5rem;">
+          <button class="tab-header-btn active" id="btn-tab-import-folder" onclick="switchImportTab('folder')">📁 Nhập từ Thư Mục (Folder Path)</button>
+          <button class="tab-header-btn" id="btn-tab-import-upload" onclick="switchImportTab('upload')">📤 Tải Lên Trực Tiếp (Upload)</button>
+        </div>
+
+        <!-- TAB 1: LOCAL FOLDER PATH -->
+        <div id="import-pane-folder">
+          <div class="control-group">
+            <label class="control-label">Mã Chapter (ID)</label>
+            <input type="text" class="form-input" id="import-folder-chid" placeholder="Ví dụ: ch01, ch02, chapter_100..." value="ch01">
+          </div>
+          <div class="control-group">
+            <label class="control-label">Đường dẫn Thư mục Ảnh trên Máy tính (Full Path)</label>
+            <input type="text" class="form-input" id="import-folder-path" placeholder="Ví dụ: D:\Manga\OnePiece_Ch01 hoặc C:\Users\Admin\Downloads\Manga">
+            <span style="font-size:0.7rem; color:var(--text-muted);">Thư mục chứa các file ảnh manga (.png, .jpg, .jpeg, .webp). Hệ thống sẽ tự động copy vào pipeline.</span>
+          </div>
+          <button class="btn btn-primary" style="width:100%; margin-top:0.5rem;" onclick="submitFolderImport()">📥 Tiến Hành Nhập & Phân Tích Khung</button>
+        </div>
+
+        <!-- TAB 2: BROWSER UPLOAD -->
+        <div id="import-pane-upload" style="display:none;">
+          <div class="control-group">
+            <label class="control-label">Mã Chapter (ID)</label>
+            <input type="text" class="form-input" id="upload-chid" placeholder="Ví dụ: ch01, ch02, chapter_100..." value="ch01">
+          </div>
+          <div class="control-group">
+            <label class="control-label">Chọn Các File Ảnh Manga</label>
+            <input type="file" class="form-input" id="upload-files-input" multiple accept="image/png, image/jpeg, image/webp" style="padding:0.6rem;">
+            <span style="font-size:0.7rem; color:var(--text-muted);">Bạn có thể giữ phím Ctrl / Shift để chọn nhiều trang truyện cùng lúc.</span>
+          </div>
+          <button class="btn btn-success" style="width:100%; margin-top:0.5rem;" onclick="submitDirectUpload()">🚀 Tải Lên & Khởi Tạo Chapter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 1: CANVAS BBOX DRAWER (VẼ KHUNG BẰNG CHUỘT) -->
+  <div class="modal-backdrop" id="modal-canvas">
+    <div class="modal-box" style="max-width:950px; height:85vh;">
+      <div class="modal-header">
+        <span>🖼️ Trình Xem & Vẽ Khung Tranh (Right-click + Drag để vẽ)</span>
+        <button class="btn" onclick="closeModal('modal-canvas')">✕ Đóng</button>
+      </div>
+      <div class="modal-body" style="padding:0; display:flex; flex-direction:column; background:#000;">
+        <div style="padding:0.5rem; background:#161b22; display:flex; gap:0.5rem; align-items:center;">
+          <select class="form-input" style="width:200px;" id="modal-page-selector" onchange="loadCanvasPageImage()"></select>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Giữ chuột phải và kéo để vẽ khung cắt mới</span>
+        </div>
+        <div style="flex:1; overflow:auto; display:flex; justify-content:center; align-items:center; position:relative;">
+          <canvas id="drawer-canvas" style="cursor:crosshair; max-width:100%;"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: VIDEO PLAYER PREVIEW -->
+  <div class="modal-backdrop" id="modal-video">
+    <div class="modal-box" style="max-width:850px;">
+      <div class="modal-header">
+        <span>🎬 Video MP4 Rendered Preview</span>
+        <button class="btn" onclick="closeModal('modal-video')">✕ Đóng</button>
+      </div>
+      <div class="modal-body" style="background:#000; text-align:center;">
+        <video id="main-video-player" controls autoplay muted style="max-width:100%; border-radius:6px;">
+          <source src="/media/renders/ch_sample.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: SETTINGS -->
+  <div class="modal-backdrop" id="modal-settings">
+    <div class="modal-box" style="max-width:550px;">
+      <div class="modal-header">
+        <span>⚙️ Cài Đặt Hệ Thống</span>
+        <button class="btn" onclick="closeModal('modal-settings')">✕ Đóng</button>
+      </div>
+      <div class="modal-body">
+        <div class="control-group">
+          <label class="control-label">Đường dẫn CapCut (.exe)</label>
+          <input type="text" class="form-input" id="cfg-capcut-dir" placeholder="C:\Users\Admin\AppData\Local\CapCut\Apps\CapCut.exe">
+        </div>
+        <div class="control-group">
+          <label class="control-label">Thư mục CapCut Projects (Drafts)</label>
+          <input type="text" class="form-input" id="cfg-capcut-drafts" value="exports/capcut">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="saveSettings(); closeModal('modal-settings');">Lưu Cài Đặt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: HOTKEYS CHEAT SHEET -->
+  <div class="modal-backdrop" id="modal-hotkeys">
+    <div class="modal-box" style="max-width:550px;">
+      <div class="modal-header">
+        <span>⌨️ Bảng Phím Tắt Thao Tác Nhanh</span>
+        <button class="btn" onclick="closeModal('modal-hotkeys')">✕ Đóng</button>
+      </div>
+      <div class="modal-body">
+        <table style="width:100%; font-size:0.85rem; border-collapse:collapse;">
+          <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:0.4rem;"><code>Alt + 1</code></td><td>Di chuyển hàng lên trên</td></tr>
+          <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:0.4rem;"><code>Alt + 2</code></td><td>Di chuyển hàng xuống dưới</td></tr>
+          <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:0.4rem;"><code>Delete</code></td><td>Xóa các hàng đang chọn</td></tr>
+          <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:0.4rem;"><code>Ctrl + S</code></td><td>Lưu toàn bộ chỉnh sửa kịch bản</td></tr>
+          <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:0.4rem;"><code>Ctrl + F</code></td><td>Mở tab tìm kiếm & lọc</td></tr>
+        </table>
+      </div>
+  <!-- MODAL 5: CAPCUT EXPORT REPORT -->
+  <div class="modal-backdrop" id="modal-export-capcut">
+    <div class="modal-box" style="max-width:750px;">
+      <div class="modal-header">
+        <span>📦 Gói Xuất CapCut PC (Từng Khung Cắt Nhỏ 1:1)</span>
+        <button class="btn" onclick="closeModal('modal-export-capcut')">✕ Đóng</button>
+      </div>
+      <div class="modal-body">
+        <div style="background:#11151c; border:1px solid var(--border-color); border-radius:6px; padding:0.8rem; margin-bottom:1rem;">
+          <div style="font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-muted);">📁 Thư mục xuất trên máy tính:</div>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <input type="text" id="capcut-export-path-input" class="form-input" style="font-family:monospace; font-size:0.8rem;" readonly>
+            <button class="btn btn-primary" onclick="copyCapcutPath()">📋 Copy Path</button>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0.5rem; margin-bottom:1rem;">
+          <div style="background:#181e29; padding:0.6rem; border-radius:6px; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">Khung Tranh Đã Cắt</div>
+            <div style="font-size:1.2rem; font-weight:700; color:var(--accent-blue);" id="capcut-stat-panels">0</div>
+            <div style="font-size:0.65rem; color:#888;">(thư mục panels/)</div>
+          </div>
+          <div style="background:#181e29; padding:0.6rem; border-radius:6px; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">Audio Khớp 1:1</div>
+            <div style="font-size:1.2rem; font-weight:700; color:var(--accent-green);" id="capcut-stat-audio">0</div>
+            <div style="font-size:0.65rem; color:#888;">(thư mục audio/)</div>
+          </div>
+          <div style="background:#181e29; padding:0.6rem; border-radius:6px; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">Thời Lượng Video</div>
+            <div style="font-size:1.2rem; font-weight:700; color:var(--accent-purple);" id="capcut-stat-duration">0s</div>
+            <div style="font-size:0.65rem; color:#888;">(tổng thời gian)</div>
+          </div>
+          <div style="background:#181e29; padding:0.6rem; border-radius:6px; text-align:center;">
+            <div style="font-size:0.75rem; color:var(--text-muted);">File Phụ Đề</div>
+            <div style="font-size:1.2rem; font-weight:700; color:#e0af68;">SRT</div>
+            <div style="font-size:0.65rem; color:#888;">(subtitles.srt)</div>
+          </div>
+        </div>
+
+        <div style="background:#0f172a; border:1px solid #1e293b; border-radius:6px; padding:0.8rem; margin-bottom:1rem; font-size:0.8rem; line-height:1.4;">
+          <strong style="color:var(--accent-green);">🎬 Hướng Dẫn Kéo Thả Vào CapCut PC (Chỉ 3 Bước):</strong>
+          <ol style="margin-top:0.4rem; padding-left:1.2rem; color:var(--text-main);">
+            <li>Mở <strong>CapCut PC</strong> ➔ Tạo <strong>New Project</strong>.</li>
+            <li>Kéo toàn bộ ảnh trong thư mục <code>panels/</code> vào Timeline Video, và kéo toàn bộ file trong <code>audio/</code> vào Timeline Audio (đều được đánh số <code>001</code>, <code>002</code>... khớp 1:1).</li>
+            <li>Import file <code>subtitles.srt</code>: Vào mục <strong>Text ➔ Local Captions ➔ Import SRT</strong>.</li>
+          </ol>
+        </div>
+
+        <div style="max-height:220px; overflow-y:auto; border:1px solid var(--border-color); border-radius:6px;">
+          <table style="width:100%; font-size:0.75rem; border-collapse:collapse;" id="capcut-items-table">
+            <thead style="background:#181e29; position:sticky; top:0;">
+              <tr>
+                <th style="padding:4px 8px; text-align:center; width:40px;">#</th>
+                <th style="padding:4px 8px; width:130px;">Ảnh Khung Cắt</th>
+                <th style="padding:4px 8px; width:120px;">File Audio</th>
+                <th style="padding:4px 8px;">Lời Thoại / Phụ Đề</th>
+              </tr>
+            </thead>
+            <tbody id="capcut-items-tbody">
+              <!-- Dynamically rendered -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" onclick="closeModal('modal-export-capcut')">Đóng</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    let currentChapter = 'ch_sample';
+    let currentMode = 'row'; // 'row' or 'cell'
+    let gridRows = [];
+    let selectedRowIndices = new Set();
+    let lastSelectedIndex = -1;
+    let isDrawing = false;
+    let startX = 0, startY = 0;
+
+    // --- INITIALIZATION ---
+    document.addEventListener('DOMContentLoaded', () => {
+      loadChaptersList();
+      refreshGridData();
+      initKeyboardShortcuts();
+      initContextMenu();
+    });
+
+    async function loadChaptersList() {
+      try {
+        const res = await fetch('/api/chapters');
+        const chapters = await res.json();
+        const selector = document.getElementById('toolbar-chapter-selector');
+        if (selector && Array.isArray(chapters) && chapters.length > 0) {
+          selector.innerHTML = '';
+          chapters.forEach(ch => {
+            const opt = document.createElement('option');
+            opt.value = ch.id;
+            opt.textContent = `${ch.id} (${ch.pages_count} trang)`;
+            if (ch.id === currentChapter) opt.selected = true;
+            selector.appendChild(opt);
+          });
+        }
+      } catch (e) {
+        console.error('Error loading chapters:', e);
+      }
+    }
+
+    function switchChapter(newChapterId) {
+      currentChapter = newChapterId;
+      document.getElementById('current-chapter-display').textContent = newChapterId;
+      selectedRowIndices.clear();
+      refreshGridData();
+    }
+
+    function switchImportTab(type) {
+      document.getElementById('import-pane-folder').style.display = type === 'folder' ? 'block' : 'none';
+      document.getElementById('import-pane-upload').style.display = type === 'upload' ? 'block' : 'none';
+      document.getElementById('btn-tab-import-folder').classList.toggle('active', type === 'folder');
+      document.getElementById('btn-tab-import-upload').classList.toggle('active', type === 'upload');
+    }
+
+    async function submitFolderImport() {
+      const chId = (document.getElementById('import-folder-chid').value || '').trim();
+      const folderPath = (document.getElementById('import-folder-path').value || '').trim();
+      if (!chId || !folderPath) {
+        alert('Vui lòng nhập đầy đủ Mã Chapter và Đường dẫn thư mục.');
+        return;
+      }
+      document.getElementById('status-left').textContent = `[BUSY] Đang nhập chapter ${chId} từ thư mục...`;
+      try {
+        const res = await fetch('/api/import', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chapter_id: chId, source_path: folderPath })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          alert(`✅ Nhập thành công Chapter: ${data.chapter_id} (${data.pages_imported} trang)!`);
+          closeModal('modal-import');
+          await loadChaptersList();
+          switchChapter(data.chapter_id);
+          // Auto run layout detection for new chapter
+          await runStage('layout');
+        } else {
+          alert(`❌ Lỗi nhập: ${data.detail || 'Lỗi không xác định'}`);
+        }
+      } catch (err) {
+        alert(`Lỗi kết nối: ${err.message}`);
+      }
+    }
+
+    async function submitDirectUpload() {
+      const chId = (document.getElementById('upload-chid').value || '').trim();
+      const fileInput = document.getElementById('upload-files-input');
+      if (!chId) {
+        alert('Vui lòng nhập Mã Chapter.');
+        return;
+      }
+      if (!fileInput.files || fileInput.files.length === 0) {
+        alert('Vui lòng chọn ít nhất 1 file ảnh.');
+        return;
+      }
+      const formData = new FormData();
+      for (let i = 0; i < fileInput.files.length; i++) {
+        formData.append('files', fileInput.files[i]);
+      }
+      document.getElementById('status-left').textContent = `[BUSY] Đang tải lên ${fileInput.files.length} ảnh cho chapter ${chId}...`;
+      try {
+        const res = await fetch(`/api/upload-chapter/${chId}`, {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+        if (res.ok) {
+          alert(`✅ Tải lên thành công Chapter: ${data.chapter_id} (${data.pages_uploaded} trang)!`);
+          closeModal('modal-import');
+          await loadChaptersList();
+          switchChapter(data.chapter_id);
+          // Auto run layout detection for new chapter
+          await runStage('layout');
+        } else {
+          alert(`❌ Lỗi tải lên: ${data.detail || 'Lỗi upload'}`);
+        }
+      } catch (err) {
+        alert(`Lỗi tải lên: ${err.message}`);
+      }
+    }
+
+    // --- FETCH & RENDER DATA GRID ---
+    async function refreshGridData() {
+      document.getElementById('status-left').textContent = 'Đang tải dữ liệu bảng...';
+      try {
+        const res = await fetch(`/api/grid-data/${currentChapter}`);
+        if (!res.ok) throw new Error('Không thể tải grid data');
+        const data = await res.json();
+        gridRows = data.rows || [];
+        document.getElementById('grid-stats-display').textContent = `Tổng cộng: ${gridRows.length} Panels`;
+        document.getElementById('status-left').textContent = `Đã tải ${gridRows.length} panels thành công.`;
+        renderGridTable();
+        populatePageSelector();
+      } catch (err) {
+        document.getElementById('status-left').textContent = `Lỗi: ${err.message}`;
+      }
+    }
+
+    function renderGridTable() {
+      const tbody = document.getElementById('grid-tbody');
+      tbody.innerHTML = '';
+
+      if (gridRows.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:2rem; color:var(--text-muted);">Chưa có dữ liệu. Hãy chạy Stage 1. Layout.</td></tr>';
+        return;
+      }
+
+      gridRows.forEach((row, idx) => {
+        const tr = document.createElement('tr');
+        tr.className = `row-item ${selectedRowIndices.has(idx) ? 'selected' : ''}`;
+        tr.id = `grid-row-${idx}`;
+        tr.onclick = (e) => handleRowClick(idx, e);
+
+        // Checkbox
+        const tdChk = document.createElement('td');
+        tdChk.style.textAlign = 'center';
+        tdChk.innerHTML = `<input type="checkbox" class="row-checkbox" ${selectedRowIndices.has(idx) ? 'checked' : ''} onclick="event.stopPropagation(); toggleRowSelect(${idx});">`;
+        tr.appendChild(tdChk);
+
+        // STT + Page Badge
+        const tdIndex = document.createElement('td');
+        tdIndex.style.textAlign = 'center';
+        const pageLabel = row.page_file ? (row.page_file.length > 12 ? row.page_file.substring(0, 10) + '..' : row.page_file) : 'Trang';
+        tdIndex.innerHTML = `
+          <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+            <span style="font-weight:700; color:var(--accent-blue); font-size:0.85rem;">#${idx + 1}</span>
+            <span class="badge badge-blue" style="font-size:0.65rem; padding:1px 5px;" title="${row.page_file || ''}">${pageLabel}</span>
+          </div>
+        `;
+        tr.appendChild(tdIndex);
+
+        // Thumbnail Canvas
+        const tdThumb = document.createElement('td');
+        const thumbBox = document.createElement('div');
+        thumbBox.className = 'thumbnail-box';
+        thumbBox.title = `Click đúp để mở trình vẽ khung (${row.page_file || ''} [${row.bbox ? row.bbox.join(', ') : ''}])`;
+        thumbBox.ondblclick = () => openModal('modal-canvas');
+        const canvas = document.createElement('canvas');
+        canvas.width = 90;
+        canvas.height = 60;
+        drawThumbnail(canvas, row);
+        thumbBox.appendChild(canvas);
+        tdThumb.appendChild(thumbBox);
+        tr.appendChild(tdThumb);
+
+        // Text Gốc (OCR)
+        const tdOcr = document.createElement('td');
+        tdOcr.innerHTML = row.ocr_text ? `<div style="font-size:0.75rem; color:var(--text-muted); max-height:60px; overflow:hidden;">${row.ocr_text}</div>` : '<em style="color:#555; font-size:0.7rem;">(Không có text)</em>';
+        tr.appendChild(tdOcr);
+
+        // Text Dịch / Kịch Bản (Editable Textarea)
+        const tdScript = document.createElement('td');
+        const textarea = document.createElement('textarea');
+        textarea.className = 'cell-editable';
+        textarea.value = row.script_text || '';
+        textarea.id = `cell-text-${row.script_anchor}`;
+        textarea.oninput = () => {
+          row.script_text = textarea.value;
+          textarea.classList.add('dirty');
+        };
+        textarea.onfocus = () => {
+          if (currentMode === 'row') selectSingleRow(idx);
+        };
+        tdScript.appendChild(textarea);
+        tr.appendChild(tdScript);
+
+        // Giọng Đọc (TTS Player)
+        const tdAudio = document.createElement('td');
+        if (row.has_audio) {
+          tdAudio.innerHTML = `
+            <div style="display:flex; flex-direction:column; gap:0.2rem;">
+              <span style="font-size:0.7rem; color:var(--accent-green); font-family:monospace;">${row.audio_duration_ms} ms</span>
+              <audio controls style="width:130px; height:26px;">
+                <source src="/media/${row.audio_file}?t=${Date.now()}" type="audio/wav">
+              </audio>
+            </div>
+          `;
+        } else {
+          tdAudio.innerHTML = '<span style="font-size:0.7rem; color:var(--text-muted);">Chưa có audio</span>';
+        }
+        tr.appendChild(tdAudio);
+
+        // In/Out Template
+        const tdInOut = document.createElement('td');
+        tdInOut.innerHTML = `<span class="badge badge-blue">${row.in_out_template || 'fade'}</span>`;
+        tr.appendChild(tdInOut);
+
+        // Keyframe Template
+        const tdKeyframe = document.createElement('td');
+        tdKeyframe.innerHTML = `<span class="badge badge-purple">${row.keyframe_template || 'tpl_slow_zoom'}</span>`;
+        tr.appendChild(tdKeyframe);
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function drawThumbnail(canvas, row) {
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.src = `/media/${row.page_image}`;
+      img.onerror = () => { img.src = `/media/tests/fixtures/${currentChapter}/pages/${row.page_file}`; };
+      img.onload = () => {
+        const [x, y, w, h] = row.bbox;
+        ctx.drawImage(img, x, y, w, h, 0, 0, canvas.width, canvas.height);
+      };
+    }
+
+    // --- SELECTION LOGIC ---
+    function setInteractionMode(mode) {
+      currentMode = mode;
+      document.getElementById('btn-mode-row').classList.toggle('active', mode === 'row');
+      document.getElementById('btn-mode-cell').classList.toggle('active', mode === 'cell');
+      document.getElementById('status-left').textContent = mode === 'row' ? 'Chế độ HÀNG: Chọn hàng để thao tác với ảnh, audio, hiệu ứng.' : 'Chế độ Ô: Chọn ô để chỉnh sửa văn bản.';
+    }
+
+    function handleRowClick(index, event) {
+      if (event.shiftKey && lastSelectedIndex !== -1) {
+        const start = Math.min(lastSelectedIndex, index);
+        const end = Math.max(lastSelectedIndex, index);
+        for (let i = start; i <= end; i++) selectedRowIndices.add(i);
+      } else if (event.ctrlKey) {
+        if (selectedRowIndices.has(index)) selectedRowIndices.delete(index);
+        else selectedRowIndices.add(index);
+        lastSelectedIndex = index;
+      } else {
+        selectedRowIndices.clear();
+        selectedRowIndices.add(index);
+        lastSelectedIndex = index;
+      }
+      renderRowSelectionStates();
+    }
+
+    function selectSingleRow(index) {
+      selectedRowIndices.clear();
+      selectedRowIndices.add(index);
+      lastSelectedIndex = index;
+      renderRowSelectionStates();
+    }
+
+    function toggleRowSelect(index) {
+      if (selectedRowIndices.has(index)) selectedRowIndices.delete(index);
+      else selectedRowIndices.add(index);
+      renderRowSelectionStates();
+    }
+
+    function toggleSelectAll(checked) {
+      selectedRowIndices.clear();
+      if (checked) {
+        gridRows.forEach((_, idx) => selectedRowIndices.add(idx));
+      }
+      renderRowSelectionStates();
+    }
+
+    function renderRowSelectionStates() {
+      gridRows.forEach((_, idx) => {
+        const tr = document.getElementById(`grid-row-${idx}`);
+        if (tr) {
+          tr.classList.toggle('selected', selectedRowIndices.has(idx));
+          const chk = tr.querySelector('.row-checkbox');
+          if (chk) chk.checked = selectedRowIndices.has(idx);
+        }
+      });
+      document.getElementById('status-right').textContent = `Đang chọn: ${selectedRowIndices.size} hàng`;
+    }
+
+    // --- ROW OPERATIONS (ALT+1, ALT+2, DELETE) ---
+    function moveSelectedRows(direction) {
+      if (selectedRowIndices.size === 0) return;
+      const indices = Array.from(selectedRowIndices).sort((a, b) => direction < 0 ? a - b : b - a);
+      indices.forEach(idx => {
+        const target = idx + direction;
+        if (target >= 0 && target < gridRows.length) {
+          const temp = gridRows[idx];
+          gridRows[idx] = gridRows[target];
+          gridRows[target] = temp;
+          selectedRowIndices.delete(idx);
+          selectedRowIndices.add(target);
+        }
+      });
+      renderGridTable();
+      saveRowReorder();
+    }
+
+    async function saveRowReorder() {
+      const orderedAnchors = gridRows.map(r => r.panel_anchor);
+      await fetch('/api/panels/reorder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chapter_id: currentChapter, ordered_anchors: orderedAnchors })
+      });
+    }
+
+    function deleteSelectedRows() {
+      if (selectedRowIndices.size === 0) return;
+      if (!confirm(`Xác nhận xóa ${selectedRowIndices.size} hàng đang chọn?`)) return;
+      gridRows = gridRows.filter((_, idx) => !selectedRowIndices.has(idx));
+      selectedRowIndices.clear();
+      renderGridTable();
+      saveRowReorder();
+    }
+
+    function selectEmptyTextRows() {
+      selectedRowIndices.clear();
+      gridRows.forEach((row, idx) => {
+        if (!row.ocr_text || row.ocr_text.trim() === '') {
+          selectedRowIndices.add(idx);
+        }
+      });
+      renderRowSelectionStates();
+      alert(`Đã chọn ${selectedRowIndices.size} hàng không có chữ. Bấm phím Delete để xóa.`);
+    }
+
+    // --- OVERRIDES & SAVE ---
+    async function saveAllGridOverrides() {
+      const overrides = {};
+      gridRows.forEach(row => {
+        if (row.script_anchor && row.script_text) {
+          overrides[row.script_anchor] = row.script_text;
+        }
+      });
+      try {
+        const res = await fetch('/api/overrides', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ overrides })
+        });
+        if (res.ok) {
+          document.querySelectorAll('.cell-editable').forEach(el => el.classList.remove('dirty'));
+          document.getElementById('status-left').textContent = `[OK] Đã lưu thành công ${Object.keys(overrides).length} câu thoại vào project.json!`;
+          alert('Đã lưu toàn bộ thay đổi thành công!');
+        }
+      } catch (err) {
+        alert(`Lỗi khi lưu: ${err.message}`);
+      }
+    }
+
+    // --- BULK EFFECTS APPLY ---
+    async function applyEffectBulk(mode) {
+      const template = document.getElementById('select-active-template').value;
+      let targetAnchors = [];
+      if (mode === 'selected') {
+        targetAnchors = Array.from(selectedRowIndices).map(idx => gridRows[idx].panel_anchor);
+      } else if (mode === 'all') {
+        targetAnchors = gridRows.map(r => r.panel_anchor);
+      } else if (mode === 'random_selected') {
+        const tpls = ['tpl_slow_zoom', 'tpl_zoom_in', 'tpl_zoom_out', 'tpl_pan_left', 'tpl_pan_right'];
+        selectedRowIndices.forEach(idx => {
+          gridRows[idx].keyframe_template = tpls[Math.floor(Math.random() * tpls.length)];
+        });
+        renderGridTable();
+        return;
+      } else if (mode === 'random_all') {
+        const tpls = ['tpl_slow_zoom', 'tpl_zoom_in', 'tpl_zoom_out', 'tpl_pan_left', 'tpl_pan_right'];
+        gridRows.forEach(row => {
+          row.keyframe_template = tpls[Math.floor(Math.random() * tpls.length)];
+        });
+        renderGridTable();
+        return;
+      }
+
+      await fetch('/api/effects/bulk-apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chapter_id: currentChapter,
+          panel_anchors: targetAnchors,
+          keyframe_template: template
+        })
+      });
+      refreshGridData();
+    }
+
+    // --- PIPELINE EXECUTION ---
+    // --- SCRIPT & STYLE OPERATIONS ---
+    function applyStyleToSelectedRows() {
+      const stylePrompt = document.getElementById('script-prompt-style').value.trim();
+      if (!stylePrompt) {
+        alert('Vui lòng nhập phong cách kịch bản.');
+        return;
+      }
+      const targetRows = selectedRowIndices.size > 0 
+        ? Array.from(selectedRowIndices).map(i => gridRows[i])
+        : gridRows;
+
+      targetRows.forEach(row => {
+        if (row.ocr_text && row.ocr_text.trim()) {
+          row.script_text = `[${stylePrompt}]: ${row.ocr_text.replace(/\n/g, ' ')}`;
+        } else {
+          row.script_text = `[${stylePrompt}]: Diễn biến kịch tính tại khung tranh ${row.reading_order}.`;
+        }
+      });
+
+      renderGridTable();
+      document.querySelectorAll('.cell-editable').forEach(el => el.classList.add('dirty'));
+      document.getElementById('status-left').textContent = `[OK] Đã áp dụng phong cách cho ${targetRows.length} câu thoại! Hãy bấm Lưu (Ctrl+S).`;
+      alert(`✅ Đã cập nhật ${targetRows.length} câu thoại theo phong cách: "${stylePrompt}".\n\nHãy kiểm tra trên bảng và bấm Lưu (Ctrl+S) khi ưng ý!`);
+    }
+
+    function resetScriptToDefault() {
+      if (!confirm('Xác nhận khôi phục kịch bản gốc từ OCR (xóa các chỉnh sửa thủ công)?')) return;
+      gridRows.forEach(row => {
+        row.script_text = row.ocr_text && row.ocr_text.trim() ? row.ocr_text : `Lời dẫn chuyện cho khung tranh ${row.reading_order}.`;
+      });
+      renderGridTable();
+      saveAllGridOverrides();
+    }
+
+    function formatSelectedTexts(type) {
+      const targetRows = selectedRowIndices.size > 0
+        ? Array.from(selectedRowIndices).map(i => gridRows[i])
+        : gridRows;
+      targetRows.forEach(row => {
+        if (!row.script_text) return;
+        if (type === 'capitalize') {
+          row.script_text = row.script_text.charAt(0).toUpperCase() + row.script_text.slice(1);
+        } else if (type === 'lowercase') {
+          row.script_text = row.script_text.toLowerCase();
+        } else if (type === 'trim') {
+          row.script_text = row.script_text.replace(/\s+/g, ' ').trim();
+        }
+      });
+      renderGridTable();
+      document.querySelectorAll('.cell-editable').forEach(el => el.classList.add('dirty'));
+    }
+
+    function filterGridRows() {
+      const kw = (document.getElementById('search-keyword').value || '').toLowerCase();
+      gridRows.forEach((row, idx) => {
+        const tr = document.getElementById(`grid-row-${idx}`);
+        if (tr) {
+          const match = !kw || (row.script_text && row.script_text.toLowerCase().includes(kw)) || (row.ocr_text && row.ocr_text.toLowerCase().includes(kw));
+          tr.style.display = match ? '' : 'none';
+        }
+      });
+    }
+
+    function replaceTextInGrid() {
+      const search = document.getElementById('search-keyword').value;
+      const replace = document.getElementById('replace-keyword').value;
+      if (!search) {
+        alert('Vui lòng nhập từ khóa tìm kiếm.');
+        return;
+      }
+      let count = 0;
+      gridRows.forEach(row => {
+        if (row.script_text && row.script_text.includes(search)) {
+          row.script_text = row.script_text.replaceAll(search, replace);
+          count++;
+        }
+      });
+      renderGridTable();
+      document.querySelectorAll('.cell-editable').forEach(el => el.classList.add('dirty'));
+      alert(`Đã thay thế "${search}" thành "${replace}" trong ${count} câu thoại!`);
+    }
+
+    async function saveSettings() {
+      const capcutDir = document.getElementById('cfg-capcut-dir').value;
+      const capcutDrafts = document.getElementById('cfg-capcut-drafts').value;
+      await fetch('/api/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ capcut_dir: capcutDir, capcut_drafts: capcutDrafts })
+      });
+      alert('Đã lưu cài đặt thành công!');
+    }
+
+    // --- PIPELINE EXECUTION ---
+    async function runStage(stage) {
+      document.getElementById('status-left').textContent = `[BUSY] Đang chạy stage ${stage.toUpperCase()}...`;
+      try {
+        const res = await fetch(`/api/run/${stage}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chapter_id: currentChapter })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          document.getElementById('status-left').textContent = `[OK] Stage ${stage.toUpperCase()} hoàn thành!`;
+          await refreshGridData();
+          alert(`✅ Stage ${stage.toUpperCase()} đã hoàn thành thành công!\n\nBảng dữ liệu đã được cập nhật mới.`);
+        } else {
+          alert(`❌ Lỗi khi chạy stage ${stage.toUpperCase()}: ${data.detail || 'Lỗi server'}`);
+        }
+      } catch (err) {
+        document.getElementById('status-left').textContent = `Lỗi: ${err.message}`;
+        alert(`Lỗi kết nối: ${err.message}`);
+      }
+    }
+
+    async function autoAudioSync() {
+      document.getElementById('status-left').textContent = 'Đang tự động đồng bộ Timeline theo Audio...';
+      await runStage('tts');
+      document.getElementById('status-left').textContent = '[OK] Đã hoàn thành đồng bộ Audio & Timeline!';
+      alert('Đã hoàn thành sắp xếp & đồng bộ Timeline!');
+    }
+
+    async function exportCapCut() {
+      document.getElementById('status-left').textContent = `[BUSY] Đang xuất gói CapCut cho chapter ${currentChapter}...`;
+      try {
+        const res = await fetch(`/api/export/${currentChapter}`, { method: 'POST' });
+        const data = await res.json();
+        if (res.ok) {
+          document.getElementById('status-left').textContent = `[OK] Đã xuất gói CapCut thành công!`;
+          document.getElementById('capcut-export-path-input').value = data.export_dir || '';
+          document.getElementById('capcut-stat-panels').textContent = data.panels_cropped || 0;
+          document.getElementById('capcut-stat-audio').textContent = data.audio_copied || 0;
+          document.getElementById('capcut-stat-duration').textContent = `${((data.total_duration_ms || 0) / 1000).toFixed(1)}s`;
+
+          // Populate items table
+          const tbody = document.getElementById('capcut-items-tbody');
+          tbody.innerHTML = '';
+          if (Array.isArray(data.items)) {
+            data.items.forEach(item => {
+              const tr = document.createElement('tr');
+              tr.style.borderBottom = '1px solid var(--border-color)';
+              tr.innerHTML = `
+                <td style="padding:4px 8px; text-align:center; font-weight:700; color:var(--accent-blue);">#${item.index}</td>
+                <td style="padding:4px 8px; font-family:monospace; color:var(--accent-green);">${item.panel_image}</td>
+                <td style="padding:4px 8px; font-family:monospace; color:var(--accent-purple);">${item.audio_file}</td>
+                <td style="padding:4px 8px; font-size:0.75rem; color:var(--text-main);">${item.text}</td>
+              `;
+              tbody.appendChild(tr);
+            });
+          }
+
+          openModal('modal-export-capcut');
+        } else {
+          alert(`❌ Lỗi xuất CapCut: ${data.detail || 'Lỗi server'}`);
+        }
+      } catch (err) {
+        alert(`❌ Lỗi kết nối: ${err.message}`);
+      }
+    }
+
+    function copyCapcutPath() {
+      const input = document.getElementById('capcut-export-path-input');
+      if (input && input.value) {
+        navigator.clipboard.writeText(input.value);
+        alert(`📋 Đã sao chép đường dẫn thư mục vào Clipboard:\n${input.value}`);
+      }
+    }
+
+    // --- TABS & MODALS ---
+    function switchContextTab(tabId) {
+      document.querySelectorAll('.sidebar-tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-header-btn').forEach(el => el.classList.remove('active'));
+      const content = document.getElementById(tabId);
+      if (content) content.classList.add('active');
+      if (event && event.target && event.target.classList) event.target.classList.add('active');
+    }
+
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      if (id === 'modal-canvas') loadCanvasPageImage();
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    // --- KEYBOARD SHORTCUTS ---
+    function initKeyboardShortcuts() {
+      window.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') {
+          if (e.ctrlKey && e.key.toLowerCase() === 's') {
+            e.preventDefault();
+            saveAllGridOverrides();
+          }
+          return;
+        }
+
+        if (e.altKey && e.key === '1') { e.preventDefault(); moveSelectedRows(-1); }
+        if (e.altKey && e.key === '2') { e.preventDefault(); moveSelectedRows(1); }
+        if (e.key === 'Delete' || (e.altKey && e.key.toLowerCase() === 'd')) { e.preventDefault(); deleteSelectedRows(); }
+        if (e.ctrlKey && e.key.toLowerCase() === 's') { e.preventDefault(); saveAllGridOverrides(); }
+        if (e.ctrlKey && e.key.toLowerCase() === 'f') { e.preventDefault(); switchContextTab('tab-search'); }
+      });
+    }
+
+    // --- CONTEXT MENU ---
+    function initContextMenu() {
+      const menu = document.getElementById('grid-context-menu');
+      window.addEventListener('contextmenu', (e) => {
+        const row = e.target.closest('tr.row-item');
+        if (row) {
+          e.preventDefault();
+          menu.style.display = 'block';
+          menu.style.left = `${e.pageX}px`;
+          menu.style.top = `${e.pageY}px`;
+          document.getElementById('menu-items-row-mode').style.display = (currentMode === 'row') ? 'block' : 'none';
+          document.getElementById('menu-items-cell-mode').style.display = (currentMode === 'cell') ? 'block' : 'none';
+        }
+      });
+      window.addEventListener('click', () => { menu.style.display = 'none'; });
+    }
+
+    // --- CANVAS DRAWER LOGIC ---
+    function populatePageSelector() {
+      const select = document.getElementById('modal-page-selector');
+      if (!select) return;
+      const pages = [...new Set(gridRows.map(r => r.page_file))];
+      select.innerHTML = '';
+      pages.forEach((p, idx) => {
+        const opt = document.createElement('option');
+        opt.value = p;
+        opt.textContent = `Trang ${idx + 1} (${p.substring(0, 8)}...)`;
+        select.appendChild(opt);
+      });
+    }
+
+    function loadCanvasPageImage() {
+      const select = document.getElementById('modal-page-selector');
+      const pageFile = select ? select.value : (gridRows[0] ? gridRows[0].page_file : null);
+      if (!pageFile) return;
+
+      const canvas = document.getElementById('drawer-canvas');
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.src = `/media/pages/${currentChapter}/${pageFile}`;
+      img.onerror = () => { img.src = `/media/tests/fixtures/${currentChapter}/pages/${pageFile}`; };
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+
+        // Draw existing bounding boxes
+        gridRows.forEach(r => {
+          if (r.page_file === pageFile) {
+            const [x, y, w, h] = r.bbox;
+            ctx.strokeStyle = '#38bdf8';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(x, y, w, h);
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillRect(x, y, 70, 24);
+            ctx.fillStyle = '#000';
+            ctx.font = 'bold 14px sans-serif';
+            ctx.fillText(`Khung ${r.reading_order}`, x + 6, y + 17);
+          }
+        });
+      };
+    }
+  </script>
+</body>
+</html>

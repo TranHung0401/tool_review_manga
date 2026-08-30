@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "stage": "script",
+  "chapter_id": "ch01",
+  "artifact_version": 1,
+  "depends_on": {
+    "stage": "ocr",
+    "artifact_version": 1,
+    "depends_on_story": null
+  },
+  "manifest": {
+    "mode": "manual_script",
+    "engine": "manual_import",
+    "timestamp": "2026-08-30T07:55:51.672957+00:00",
+    "source_file": "auto_generated",
+    "model": null,
+    "engine_version": null,
+    "quantization": null,
+    "gpu_layers": null,
+    "vision": null,
+    "model_version_seen": null,
+    "style_preset": null,
+    "cost_estimate_usd": null
+  },
+  "units": [
+    {
+      "id": "s_dfd1652ca747",
+      "panel_id": "p_e799984a6833",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "HANER THUCTIEN No:419 1004 FOGASHIYOSHIHIRO XIN YUI LONG GIU BiNH TiNH!!",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_67725b6f0356",
+      "panel_id": "p_df30bc57bace",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "THICUAQUAN THIET QUAN DOI HOANG 1004 GIA!! LUAT DAC BIET!!",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_e73a5a8fe922",
+      "panel_id": "p_ca9a35431b76",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Phong Chung se chang Neu ta binhitinh, Hayla Phong 1006:c0 quan 1002 nghi ngo gi saul tutindiencua, h bi:ten doi:r hoanggiacanh khongco xac nhan linhicanh iBig du co lot vao goc Baka khono qae xut nguoicanh ben nay hoan toan mat cua chung va ne uc cua qac khong.co.dong tinh chung nhin ye xa qiam nao. phia-ta..! ong :trong khuVVIP",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_e23f15d8ff02",
+      "panel_id": "p_5f2f446c6faa",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Cang Xa anfen Tien them 5~ 6m nua RE... tri kich hoat), (vi t chac la out... Khi nang RE... nhip nhieu song het l hieu luc, co RE... luc le ta",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_6eca31dae883",
+      "panel_id": "p_c414e7250c4c",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "ihuong CAONKEAE Vay lakhoang 35m nang uc.cua tu.diem.kich.hoat fa cothevuon xa den canh ma cua doi dien 225 conso:may.man hanh lang cua-ta anen.co nay,noi dan thela36m. ra loidi chung V.VIP.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_26f7a547bf5d",
+      "panel_id": "p_c8acb8292fc5",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "RE. RE RE",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_28ff3fb7ed3c",
+      "panel_id": "p_5f0dd3207717",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "CRE 4 J",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_41e594bd9e6d",
+      "panel_id": "p_be1faf5b0177",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Sat nut...!! Nhung no vuon toi tan cua!! E. AI vAay...? DuOC KHONG The?",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_7274aed5342f",
+      "panel_id": "p_cf502c82a674",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "HAN CAM VU HAN... KHI MA QUAN DOI HOANG GIA LA AI BEN DO KHONG VAY?... CO pHAn UNG NHUNG Gi, chAc co MA... CHITHINAO DO Nhi?",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_6b477370b517",
+      "panel_id": "p_a6db50020ddd",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Nhung khong Chung DUNG CAN phan uing... PHAI chac chan THIEPVAOCHi vi quan doi Do TH! Bi MAT, Lo da thay CO GI THI CHi hoang gia ben CHUNG TA B! nay khong phan ta...! ung gi. Cu De ho Lo.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_f8e74f0b9056",
+      "panel_id": "p_7f144ac2a49d",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Neu ta buoc ra khoi Nguoc Vay la xong!! Nang luc the gioi nang lyc hoac Mien la ta khong lai, cua ta co ban kinh anh giai tru \"Tuyet\", nang giai tru \"Tuyet\", huong khoang 36m! Va luc se bi reset va ta co the lien tuc \" 10 giay sat na\" khong nhung nguoi bi anh co tac dung voi nhung su dung \"10 giay huong ben trong se tro nguoi ben ngoai pham vi!! sat na\" voi ranh gioi lai binh thuong!! 36m!!",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_a32694a9443b",
+      "panel_id": "p_6fb0d03f2193",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "HANER THUCTIEN No:419 1004 FOGASHIYOSHIHIRO XIN YUI LONG GIU BiNH TiNH!!",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_8c828bc8198d",
+      "panel_id": "p_55fca5a7e2bc",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "THICUAQUAN THIET QUAN DOI HOANG 1004 GIA!! LUAT DAC BIET!!",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_ac759abf9c8a",
+      "panel_id": "p_cd080b9ddf90",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Phong Chung se chang Neu ta binhitinh, Hayla Phong 1006:c0 quan 1002 nghi ngo gi saul tutindiencua, h bi:ten doi:r hoanggiacanh khongco xac nhan linhicanh iBig du co lot vao goc Baka khono qae xut nguoicanh ben nay hoan toan mat cua chung va ne uc cua qac khong.co.dong tinh chung nhin ye xa qiam nao. phia-ta..! ong :trong khuVVIP",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_29e68b48df16",
+      "panel_id": "p_40910fde598f",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Cang Xa anfen Tien them 5~ 6m nua RE... tri kich hoat), (vi t chac la out... Khi nang RE... nhip nhieu song het l hieu luc, co RE... luc le ta",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_72f3c379a6c3",
+      "panel_id": "p_35711e46e897",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "1004",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_6c71291c659f",
+      "panel_id": "p_756b563e1ec0",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Dialogue at panel 17 region 1",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_4402e04bc78b",
+      "panel_id": "p_5a9b48b8eaec",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Phu~ DUOC ROI",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_84210781deaa",
+      "panel_id": "p_02898e43558e",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Dialogue at panel 19 region 1",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_6390ce0a3544",
+      "panel_id": "p_29b9053b74d9",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Dialogue at panel 20 region 1",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_0133af38727a",
+      "panel_id": "p_cbf3ebfc8ae5",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "7. 0",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    }
+  ],
+  "unassigned": []
+}

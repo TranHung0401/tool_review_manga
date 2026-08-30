@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "chapter_id": "ch01xx",
+  "exported_at": "2026-08-30T08:02:09.523215Z",
+  "srt_file": "exports\\ch01xx\\subtitles.srt",
+  "total_duration_ms": 45020,
+  "clips_count": 4,
+  "audio_copied": 4,
+  "audio_missing": [],
+  "pages_copied": 1,
+  "export_dir": "exports\\ch01xx",
+  "capcut_instructions": "1. Mở CapCut PC → New project.\n2. Import ảnh từ pages/ → sắp theo thứ tự đọc.\n3. Import audio từ audio/ → kéo từng clip vào timeline.\n4. Import subtitles.srt: Subtitles → Import SRT.\n5. Điều chỉnh timing theo ý muốn → Export MP4."
+}

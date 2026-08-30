@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "stage": "ocr",
+  "chapter_id": "ch_sample",
+  "artifact_version": 1,
+  "depends_on": {
+    "stage": "layout",
+    "artifact_version": 1,
+    "layout_overrides_hash": null
+  },
+  "manifest": {
+    "engine": "manga-ocr",
+    "model": "kha-white/manga-ocr-base",
+    "engine_version": "0.1.11",
+    "timestamp": "2026-08-30T04:36:48.948612+00:00",
+    "scale_factor": 1.0
+  },
+  "panels": [
+    {
+      "id": "p_283da5a479e4",
+      "cleaned_image": "cleaned/3f124a39-8b4e-44f9-be5e-aa14a2f2c072.png",
+      "texts": [
+        {
+          "id": "t_d4836fb0db43",
+          "original": "Dialogue at panel 1 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_730d4d5b069f",
+      "cleaned_image": "cleaned/3f124a39-8b4e-44f9-be5e-aa14a2f2c072.png",
+      "texts": [
+        {
+          "id": "t_82b1404e2f40",
+          "original": "Dialogue at panel 2 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_e8a783d57614",
+      "cleaned_image": "cleaned/3f124a39-8b4e-44f9-be5e-aa14a2f2c072.png",
+      "texts": [
+        {
+          "id": "t_2d3ec0216bdd",
+          "original": "Dialogue at panel 3 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_3b83b4860155",
+      "cleaned_image": "cleaned/be61276f-e15a-41b1-a398-5789663e322f.png",
+      "texts": [
+        {
+          "id": "t_843f55da3a14",
+          "original": "Dialogue at panel 4 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_4937fe67a9d0",
+      "cleaned_image": "cleaned/be61276f-e15a-41b1-a398-5789663e322f.png",
+      "texts": [
+        {
+          "id": "t_079c062ef061",
+          "original": "Dialogue at panel 5 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_7c87daa27dd4",
+      "cleaned_image": "cleaned/be61276f-e15a-41b1-a398-5789663e322f.png",
+      "texts": [
+        {
+          "id": "t_85fe1a092b36",
+          "original": "Dialogue at panel 6 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_f27014cf91cb",
+      "cleaned_image": "cleaned/be61276f-e15a-41b1-a398-5789663e322f.png",
+      "texts": [
+        {
+          "id": "t_56672f8cb829",
+          "original": "Dialogue at panel 7 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_767f6153d31b",
+      "cleaned_image": "cleaned/dafbc942-b220-46b1-b55a-0f57b25f77d3.png",
+      "texts": [
+        {
+          "id": "t_ad9f5fd6ddc5",
+          "original": "Dialogue at panel 8 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_5afdf712f265",
+      "cleaned_image": "cleaned/dafbc942-b220-46b1-b55a-0f57b25f77d3.png",
+      "texts": [
+        {
+          "id": "t_ee56e3a2e255",
+          "original": "Dialogue at panel 9 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_38957713e8d1",
+      "cleaned_image": "cleaned/dafbc942-b220-46b1-b55a-0f57b25f77d3.png",
+      "texts": [
+        {
+          "id": "t_0923dabcb3e9",
+          "original": "Dialogue at panel 10 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_fb4017493876",
+      "cleaned_image": "cleaned/dafbc942-b220-46b1-b55a-0f57b25f77d3.png",
+      "texts": [
+        {
+          "id": "t_be1b629907a7",
+          "original": "Dialogue at panel 11 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_76e1790d6de8",
+      "cleaned_image": "cleaned/fe2e581b-db86-4989-8299-86791145e331.png",
+      "texts": [
+        {
+          "id": "t_9430e7424811",
+          "original": "Dialogue at panel 12 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_52e407cb25b4",
+      "cleaned_image": "cleaned/fe2e581b-db86-4989-8299-86791145e331.png",
+      "texts": [
+        {
+          "id": "t_f2d0716b4d0a",
+          "original": "Dialogue at panel 13 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_0eb080868326",
+      "cleaned_image": "cleaned/fe2e581b-db86-4989-8299-86791145e331.png",
+      "texts": [
+        {
+          "id": "t_9a1ab2a4cd59",
+          "original": "Dialogue at panel 14 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_7ee2afaad294",
+      "cleaned_image": "cleaned/fe2e581b-db86-4989-8299-86791145e331.png",
+      "texts": [
+        {
+          "id": "t_593e6c998689",
+          "original": "Dialogue at panel 15 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_d8371b7bcf78",
+      "cleaned_image": "cleaned/fe2e581b-db86-4989-8299-86791145e331.png",
+      "texts": [
+        {
+          "id": "t_16caec35edf9",
+          "original": "Dialogue at panel 16 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_de306ae44f3c",
+      "cleaned_image": "cleaned/fe2e581b-db86-4989-8299-86791145e331.png",
+      "texts": [
+        {
+          "id": "t_fe214516a734",
+          "original": "Dialogue at panel 17 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    }
+  ]
+}

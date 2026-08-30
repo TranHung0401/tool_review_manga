@@ -1,0 +1,151 @@
+{
+  "status": "success",
+  "chapter_id": "ch_sample",
+  "exported_at": "2026-08-30T08:10:47.989112Z",
+  "srt_file": "exports\\ch_sample\\subtitles.srt",
+  "total_duration_ms": 207954,
+  "clips_count": 17,
+  "panels_cropped": 17,
+  "audio_copied": 17,
+  "pages_copied": 4,
+  "export_dir": "exports\\ch_sample",
+  "items": [
+    {
+      "index": 1,
+      "panel_image": "panels/001_panel.png",
+      "audio_file": "audio/001_audio.wav",
+      "duration_ms": 38544,
+      "timestamp": "00:00:00,000 --> 00:00:38,544",
+      "text": "ihuong \nCAONKEAE \nVay lakhoang 35m \nnang \nuc.cua \ntu.diem.kich.hoat \nfa cothevuon \nxa den canh \nma \ncua doi dien \n225 \nconso:may.man \nhanh lang \ncua-ta \nanen.co \nnay,noi dan \nthela36m. \nra loidi \nchung V.VIP."
+    },
+    {
+      "index": 2,
+      "panel_image": "panels/002_panel.png",
+      "audio_file": "audio/002_audio.wav",
+      "duration_ms": 3624,
+      "timestamp": "00:00:38,544 --> 00:00:42,168",
+      "text": "RE. \nRE \nRE"
+    },
+    {
+      "index": 3,
+      "panel_image": "panels/003_panel.png",
+      "audio_file": "audio/003_audio.wav",
+      "duration_ms": 4296,
+      "timestamp": "00:00:42,168 --> 00:00:46,464",
+      "text": "CRE \n4 \nJ"
+    },
+    {
+      "index": 4,
+      "panel_image": "panels/004_panel.png",
+      "audio_file": "audio/004_audio.wav",
+      "duration_ms": 11760,
+      "timestamp": "00:00:46,464 --> 00:00:58,224",
+      "text": "Sat nut...!! \nNhung no vuon \ntoi tan cua!! \nE. \nAI vAay...? \nDuOC \nKHONG \nThe?"
+    },
+    {
+      "index": 5,
+      "panel_image": "panels/005_panel.png",
+      "audio_file": "audio/005_audio.wav",
+      "duration_ms": 21576,
+      "timestamp": "00:00:58,224 --> 00:01:19,800",
+      "text": "HAN CAM VU \nHAN... \nKHI MA QUAN \nDOI HOANG GIA \nLA AI \nBEN DO KHONG \nVAY?... \nCO pHAn UNG \nNHUNG \nGi, chAc co \nMA... \nCHITHINAO DO \nNhi?"
+    },
+    {
+      "index": 6,
+      "panel_image": "panels/006_panel.png",
+      "audio_file": "audio/006_audio.wav",
+      "duration_ms": 14350,
+      "timestamp": "00:01:19,800 --> 00:01:34,150",
+      "text": "Nhung khong \nChung \nDUNG CAN \nphan uing... \nPHAI \nchac chan \nTHIEPVAOCHi \nvi quan doi \nDo \nTH! Bi MAT, Lo \nda thay \nCO GI THI CHi \nhoang gia ben \nCHUNG TA B! \nnay khong phan \nta...! \nung gi. \nCu De ho Lo."
+    },
+    {
+      "index": 7,
+      "panel_image": "panels/007_panel.png",
+      "audio_file": "audio/007_audio.wav",
+      "duration_ms": 30100,
+      "timestamp": "00:01:34,150 --> 00:02:04,250",
+      "text": "Neu ta buoc ra khoi \nNguoc \nVay la xong!! Nang luc \nthe gioi nang lyc hoac \nMien la ta khong \nlai, \ncua ta co ban kinh anh \ngiai tru \"Tuyet\", nang \ngiai tru \"Tuyet\", \nhuong khoang 36m! Va \nluc se bi reset va \nta co the lien tuc \n\" 10 giay sat na\" khong \nnhung nguoi bi anh \nco tac dung voi nhung \nsu dung \"10 giay \nhuong ben trong se tro \nnguoi ben ngoai pham vi!! \nsat na\" voi ranh gioi \nlai binh thuong!! \n36m!!"
+    },
+    {
+      "index": 8,
+      "panel_image": "panels/008_panel.png",
+      "audio_file": "audio/008_audio.wav",
+      "duration_ms": 17448,
+      "timestamp": "00:02:04,250 --> 00:02:21,698",
+      "text": "HANER \nTHUCTIEN \nNo:419 \n1004 \nFOGASHIYOSHIHIRO \nXIN YUI LONG \nGIU BiNH TiNH!!"
+    },
+    {
+      "index": 9,
+      "panel_image": "panels/009_panel.png",
+      "audio_file": "audio/009_audio.wav",
+      "duration_ms": 14640,
+      "timestamp": "00:02:21,698 --> 00:02:36,338",
+      "text": "THICUAQUAN \nTHIET QUAN \nDOI HOANG \n1004 \nGIA!! \nLUAT DAC \nBIET!!"
+    },
+    {
+      "index": 10,
+      "panel_image": "panels/010_panel.png",
+      "audio_file": "audio/010_audio.wav",
+      "duration_ms": 21000,
+      "timestamp": "00:02:36,338 --> 00:02:57,338",
+      "text": "Phong \nChung se chang \nNeu ta binhitinh, \nHayla \nPhong 1006:c0 quan \n1002 \nnghi ngo gi saul \ntutindiencua, \nh \nbi:ten \ndoi:r \nhoanggiacanh \nkhongco \nxac nhan linhicanh \niBig \ndu co lot vao goc \nBaka \nkhono \nqae \nxut \nnguoicanh \nben nay hoan toan \nmat cua chung va \nne \nuc \ncua \nqac \nkhong.co.dong \ntinh \nchung nhin ye \nxa \nqiam \nnao. \nphia-ta..! \nong \n:trong \nkhuVVIP"
+    },
+    {
+      "index": 11,
+      "panel_image": "panels/011_panel.png",
+      "audio_file": "audio/011_audio.wav",
+      "duration_ms": 11200,
+      "timestamp": "00:02:57,338 --> 00:03:08,538",
+      "text": "Cang \nXa anfen \nTien \nthem 5~ 6m nua \nRE... \ntri kich hoat), \n(vi t \nchac \nla out... \nKhi \nnang \nRE... \nnhip \nnhieu song \nhet l \nhieu luc, co \nRE... \nluc \nle ta"
+    },
+    {
+      "index": 12,
+      "panel_image": "panels/012_panel.png",
+      "audio_file": "audio/012_audio.wav",
+      "duration_ms": 2472,
+      "timestamp": "00:03:08,538 --> 00:03:11,010",
+      "text": "1004"
+    },
+    {
+      "index": 13,
+      "panel_image": "panels/013_panel.png",
+      "audio_file": "audio/013_audio.wav",
+      "duration_ms": 3432,
+      "timestamp": "00:03:11,010 --> 00:03:14,442",
+      "text": "Dialogue at panel 13 region 1"
+    },
+    {
+      "index": 14,
+      "panel_image": "panels/014_panel.png",
+      "audio_file": "audio/014_audio.wav",
+      "duration_ms": 4176,
+      "timestamp": "00:03:14,442 --> 00:03:18,618",
+      "text": "Phu~ \nDUOC \nROI"
+    },
+    {
+      "index": 15,
+      "panel_image": "panels/015_panel.png",
+      "audio_file": "audio/015_audio.wav",
+      "duration_ms": 3360,
+      "timestamp": "00:03:18,618 --> 00:03:21,978",
+      "text": "Dialogue at panel 15 region 1"
+    },
+    {
+      "index": 16,
+      "panel_image": "panels/016_panel.png",
+      "audio_file": "audio/016_audio.wav",
+      "duration_ms": 3480,
+      "timestamp": "00:03:21,978 --> 00:03:25,458",
+      "text": "Dialogue at panel 16 region 1"
+    },
+    {
+      "index": 17,
+      "panel_image": "panels/017_panel.png",
+      "audio_file": "audio/017_audio.wav",
+      "duration_ms": 2496,
+      "timestamp": "00:03:25,458 --> 00:03:27,954",
+      "text": "7. \n0"
+    }
+  ],
+  "capcut_instructions": "HƯỚNG DẪN DỰNG CAPCUT CỰC NHANH (1:1 PAIRING):\n1. Mở CapCut PC → New Project.\n2. Kéo toàn bộ ảnh trong thư mục 'panels/' (001_panel.png, 002_panel.png...) thả vào Timeline Video.\n3. Kéo toàn bộ âm thanh trong thư mục 'audio/' (001_audio.wav, 002_audio.wav...) thả vào Timeline Audio.\n4. Import file 'subtitles.srt' vào CapCut (Text → Local Captions → Import SRT).\n👉 Toàn bộ Khung tranh cắt nhỏ, Âm thanh và Phụ đề đã được khớp thứ tự 1:1 từ đầu đến cuối!"
+}

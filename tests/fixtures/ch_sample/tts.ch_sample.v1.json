@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "stage": "tts",
+  "chapter_id": "ch_sample",
+  "artifact_version": 1,
+  "depends_on": {
+    "stage": "script",
+    "artifact_version": 1
+  },
+  "manifest": {
+    "provider": "edge-tts",
+    "voice_ref": "vi-VN-HoaiMyNeural",
+    "timestamp": "2026-08-30T04:36:53.017515+00:00",
+    "fallback_provider": null
+  },
+  "clips": [
+    {
+      "unit_id": "s_fc2fd52529e1",
+      "file": "audio/ch_sample_s_fc2fd52529e1.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_aef71c14e1a6",
+      "file": "audio/ch_sample_s_aef71c14e1a6.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_1c8169594feb",
+      "file": "audio/ch_sample_s_1c8169594feb.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_7ed53eab7b17",
+      "file": "audio/ch_sample_s_7ed53eab7b17.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_ae546106839f",
+      "file": "audio/ch_sample_s_ae546106839f.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_f05c710d4ebb",
+      "file": "audio/ch_sample_s_f05c710d4ebb.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_3cd359926dc5",
+      "file": "audio/ch_sample_s_3cd359926dc5.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_6fa0ee9fd76f",
+      "file": "audio/ch_sample_s_6fa0ee9fd76f.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_1a22d473f3b1",
+      "file": "audio/ch_sample_s_1a22d473f3b1.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_d6aff905c33c",
+      "file": "audio/ch_sample_s_d6aff905c33c.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_4f751f071b70",
+      "file": "audio/ch_sample_s_4f751f071b70.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_42e3c15a57ab",
+      "file": "audio/ch_sample_s_42e3c15a57ab.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_47daf8c28953",
+      "file": "audio/ch_sample_s_47daf8c28953.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_6402e35bfb39",
+      "file": "audio/ch_sample_s_6402e35bfb39.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_2aa717897d49",
+      "file": "audio/ch_sample_s_2aa717897d49.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_507e277cdbbb",
+      "file": "audio/ch_sample_s_507e277cdbbb.v1.wav",
+      "duration_ms": 2450
+    },
+    {
+      "unit_id": "s_11b28f433532",
+      "file": "audio/ch_sample_s_11b28f433532.v1.wav",
+      "duration_ms": 2450
+    }
+  ]
+}

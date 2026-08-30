@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "stage": "tts",
+  "chapter_id": "ch01xx",
+  "artifact_version": 1,
+  "depends_on": {
+    "stage": "script",
+    "artifact_version": 1
+  },
+  "manifest": {
+    "provider": "edge-tts",
+    "voice_ref": "vi-VN-HoaiMyNeural",
+    "timestamp": "2026-08-30T08:02:10.943877+00:00",
+    "fallback_provider": null
+  },
+  "clips": [
+    {
+      "unit_id": "s_b40958d8b84c",
+      "file": "audio/ch01xx_s_b40958d8b84c.v1.wav",
+      "duration_ms": 9816
+    },
+    {
+      "unit_id": "s_81bf7e2e12a6",
+      "file": "audio/ch01xx_s_81bf7e2e12a6.v1.wav",
+      "duration_ms": 9048
+    },
+    {
+      "unit_id": "s_2ba087eb893c",
+      "file": "audio/ch01xx_s_2ba087eb893c.v1.wav",
+      "duration_ms": 21000
+    },
+    {
+      "unit_id": "s_f1063d3c995f",
+      "file": "audio/ch01xx_s_f1063d3c995f.v1.wav",
+      "duration_ms": 11200
+    }
+  ]
+}

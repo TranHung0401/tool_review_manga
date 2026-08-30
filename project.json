@@ -1,0 +1,2399 @@
+{
+  "schema_version": 1,
+  "story": {
+    "title": "Manga Story",
+    "chapters": [
+      "ch_sample",
+      "ch01",
+      "ch01xx"
+    ]
+  },
+  "settings": {
+    "privacy": "local_only",
+    "script_mode_default": "manual_script",
+    "sync_policy": {
+      "min_duration_ms": 1500,
+      "padding_ms": 300
+    },
+    "directories": {
+      "capcut_drafts": "exports/capcut",
+      "exports": "exports/"
+    }
+  },
+  "active_artifacts": {
+    "ch_sample": {
+      "layout": 1,
+      "ocr": 1,
+      "script": 1,
+      "tts": 1
+    },
+    "ch01": {
+      "layout": 1,
+      "script": 1
+    },
+    "ch01xx": {
+      "layout": 1,
+      "script": 1,
+      "ocr": 1,
+      "tts": 1
+    }
+  },
+  "anchors": {
+    "pa_000001": {
+      "kind": "panel",
+      "current": "p_283da5a479e4",
+      "history": [
+        "p_283da5a479e4"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000002": {
+      "kind": "panel",
+      "current": "p_730d4d5b069f",
+      "history": [
+        "p_730d4d5b069f"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000003": {
+      "kind": "panel",
+      "current": "p_e8a783d57614",
+      "history": [
+        "p_e8a783d57614"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000004": {
+      "kind": "panel",
+      "current": "p_3b83b4860155",
+      "history": [
+        "p_3b83b4860155"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000005": {
+      "kind": "panel",
+      "current": "p_4937fe67a9d0",
+      "history": [
+        "p_4937fe67a9d0"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000006": {
+      "kind": "panel",
+      "current": "p_7c87daa27dd4",
+      "history": [
+        "p_7c87daa27dd4"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000007": {
+      "kind": "panel",
+      "current": "p_f27014cf91cb",
+      "history": [
+        "p_f27014cf91cb"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000008": {
+      "kind": "panel",
+      "current": "p_767f6153d31b",
+      "history": [
+        "p_767f6153d31b"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000009": {
+      "kind": "panel",
+      "current": "p_5afdf712f265",
+      "history": [
+        "p_5afdf712f265"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000010": {
+      "kind": "panel",
+      "current": "p_38957713e8d1",
+      "history": [
+        "p_38957713e8d1"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000011": {
+      "kind": "panel",
+      "current": "p_fb4017493876",
+      "history": [
+        "p_fb4017493876"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000012": {
+      "kind": "panel",
+      "current": "p_76e1790d6de8",
+      "history": [
+        "p_76e1790d6de8"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000013": {
+      "kind": "panel",
+      "current": "p_52e407cb25b4",
+      "history": [
+        "p_52e407cb25b4"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000014": {
+      "kind": "panel",
+      "current": "p_0eb080868326",
+      "history": [
+        "p_0eb080868326"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000015": {
+      "kind": "panel",
+      "current": "p_7ee2afaad294",
+      "history": [
+        "p_7ee2afaad294"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000016": {
+      "kind": "panel",
+      "current": "p_d8371b7bcf78",
+      "history": [
+        "p_d8371b7bcf78"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000017": {
+      "kind": "panel",
+      "current": "p_de306ae44f3c",
+      "history": [
+        "p_de306ae44f3c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000001": {
+      "kind": "unit",
+      "current": "s_fc2fd52529e1",
+      "history": [
+        "s_fc2fd52529e1"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000002": {
+      "kind": "unit",
+      "current": "s_aef71c14e1a6",
+      "history": [
+        "s_aef71c14e1a6"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000003": {
+      "kind": "unit",
+      "current": "s_1c8169594feb",
+      "history": [
+        "s_1c8169594feb"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000004": {
+      "kind": "unit",
+      "current": "s_7ed53eab7b17",
+      "history": [
+        "s_7ed53eab7b17"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000005": {
+      "kind": "unit",
+      "current": "s_ae546106839f",
+      "history": [
+        "s_ae546106839f"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000006": {
+      "kind": "unit",
+      "current": "s_f05c710d4ebb",
+      "history": [
+        "s_f05c710d4ebb"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000007": {
+      "kind": "unit",
+      "current": "s_3cd359926dc5",
+      "history": [
+        "s_3cd359926dc5"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000008": {
+      "kind": "unit",
+      "current": "s_6fa0ee9fd76f",
+      "history": [
+        "s_6fa0ee9fd76f"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000009": {
+      "kind": "unit",
+      "current": "s_1a22d473f3b1",
+      "history": [
+        "s_1a22d473f3b1"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000010": {
+      "kind": "unit",
+      "current": "s_d6aff905c33c",
+      "history": [
+        "s_d6aff905c33c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000011": {
+      "kind": "unit",
+      "current": "s_4f751f071b70",
+      "history": [
+        "s_4f751f071b70"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000012": {
+      "kind": "unit",
+      "current": "s_42e3c15a57ab",
+      "history": [
+        "s_42e3c15a57ab"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000013": {
+      "kind": "unit",
+      "current": "s_47daf8c28953",
+      "history": [
+        "s_47daf8c28953"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000014": {
+      "kind": "unit",
+      "current": "s_6402e35bfb39",
+      "history": [
+        "s_6402e35bfb39"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000015": {
+      "kind": "unit",
+      "current": "s_2aa717897d49",
+      "history": [
+        "s_2aa717897d49"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000016": {
+      "kind": "unit",
+      "current": "s_507e277cdbbb",
+      "history": [
+        "s_507e277cdbbb"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000017": {
+      "kind": "unit",
+      "current": "s_11b28f433532",
+      "history": [
+        "s_11b28f433532"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000001": {
+      "kind": "text",
+      "current": "t_d4836fb0db43",
+      "history": [
+        "t_d4836fb0db43"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000002": {
+      "kind": "text",
+      "current": "t_82b1404e2f40",
+      "history": [
+        "t_82b1404e2f40"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000003": {
+      "kind": "text",
+      "current": "t_2d3ec0216bdd",
+      "history": [
+        "t_2d3ec0216bdd"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000004": {
+      "kind": "text",
+      "current": "t_843f55da3a14",
+      "history": [
+        "t_843f55da3a14"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000005": {
+      "kind": "text",
+      "current": "t_079c062ef061",
+      "history": [
+        "t_079c062ef061"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000006": {
+      "kind": "text",
+      "current": "t_85fe1a092b36",
+      "history": [
+        "t_85fe1a092b36"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000007": {
+      "kind": "text",
+      "current": "t_56672f8cb829",
+      "history": [
+        "t_56672f8cb829"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000008": {
+      "kind": "text",
+      "current": "t_ad9f5fd6ddc5",
+      "history": [
+        "t_ad9f5fd6ddc5"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000009": {
+      "kind": "text",
+      "current": "t_ee56e3a2e255",
+      "history": [
+        "t_ee56e3a2e255"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000010": {
+      "kind": "text",
+      "current": "t_0923dabcb3e9",
+      "history": [
+        "t_0923dabcb3e9"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000011": {
+      "kind": "text",
+      "current": "t_be1b629907a7",
+      "history": [
+        "t_be1b629907a7"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000012": {
+      "kind": "text",
+      "current": "t_9430e7424811",
+      "history": [
+        "t_9430e7424811"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000013": {
+      "kind": "text",
+      "current": "t_f2d0716b4d0a",
+      "history": [
+        "t_f2d0716b4d0a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000014": {
+      "kind": "text",
+      "current": "t_9a1ab2a4cd59",
+      "history": [
+        "t_9a1ab2a4cd59"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000015": {
+      "kind": "text",
+      "current": "t_593e6c998689",
+      "history": [
+        "t_593e6c998689"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000016": {
+      "kind": "text",
+      "current": "t_16caec35edf9",
+      "history": [
+        "t_16caec35edf9"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000017": {
+      "kind": "text",
+      "current": "t_fe214516a734",
+      "history": [
+        "t_fe214516a734"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000018": {
+      "kind": "panel",
+      "current": "p_536479e0e6ec",
+      "history": [
+        "p_536479e0e6ec"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000018": {
+      "kind": "text",
+      "current": "t_b426c8c6388c",
+      "history": [
+        "t_b426c8c6388c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000019": {
+      "kind": "panel",
+      "current": "p_59962a0e25e8",
+      "history": [
+        "p_59962a0e25e8"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000019": {
+      "kind": "text",
+      "current": "t_19477a9fb78d",
+      "history": [
+        "t_19477a9fb78d"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000020": {
+      "kind": "panel",
+      "current": "p_49dc0767129b",
+      "history": [
+        "p_49dc0767129b"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000020": {
+      "kind": "text",
+      "current": "t_6e9daca50989",
+      "history": [
+        "t_6e9daca50989"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000021": {
+      "kind": "panel",
+      "current": "p_293f498b0f5b",
+      "history": [
+        "p_293f498b0f5b"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000021": {
+      "kind": "text",
+      "current": "t_311191d36ca9",
+      "history": [
+        "t_311191d36ca9"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000022": {
+      "kind": "panel",
+      "current": "p_d9c420ad373b",
+      "history": [
+        "p_d9c420ad373b"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000022": {
+      "kind": "text",
+      "current": "t_999812f98e6a",
+      "history": [
+        "t_999812f98e6a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000023": {
+      "kind": "panel",
+      "current": "p_e0bb58dfc68f",
+      "history": [
+        "p_e0bb58dfc68f"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000023": {
+      "kind": "text",
+      "current": "t_4efd10eeb341",
+      "history": [
+        "t_4efd10eeb341"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000024": {
+      "kind": "panel",
+      "current": "p_2064533729be",
+      "history": [
+        "p_2064533729be"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000024": {
+      "kind": "text",
+      "current": "t_48bbdbadbeae",
+      "history": [
+        "t_48bbdbadbeae"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000025": {
+      "kind": "panel",
+      "current": "p_9f9147e78df9",
+      "history": [
+        "p_9f9147e78df9"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000025": {
+      "kind": "text",
+      "current": "t_44f2a3ff56f5",
+      "history": [
+        "t_44f2a3ff56f5"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000026": {
+      "kind": "panel",
+      "current": "p_150f34a91928",
+      "history": [
+        "p_150f34a91928"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000026": {
+      "kind": "text",
+      "current": "t_7711092d3459",
+      "history": [
+        "t_7711092d3459"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000027": {
+      "kind": "panel",
+      "current": "p_66ef4104cdf6",
+      "history": [
+        "p_66ef4104cdf6"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000027": {
+      "kind": "text",
+      "current": "t_90318f2e4bf1",
+      "history": [
+        "t_90318f2e4bf1"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000028": {
+      "kind": "panel",
+      "current": "p_1bce2a4df5e8",
+      "history": [
+        "p_1bce2a4df5e8"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000028": {
+      "kind": "text",
+      "current": "t_102935972a75",
+      "history": [
+        "t_102935972a75"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000029": {
+      "kind": "panel",
+      "current": "p_f04156ffdf76",
+      "history": [
+        "p_f04156ffdf76"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000029": {
+      "kind": "text",
+      "current": "t_6b620cf287c7",
+      "history": [
+        "t_6b620cf287c7"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000030": {
+      "kind": "panel",
+      "current": "p_5cc2ffa459a0",
+      "history": [
+        "p_5cc2ffa459a0"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000030": {
+      "kind": "text",
+      "current": "t_e2afc942a9b8",
+      "history": [
+        "t_e2afc942a9b8"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000031": {
+      "kind": "panel",
+      "current": "p_85d99414a15a",
+      "history": [
+        "p_85d99414a15a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000031": {
+      "kind": "text",
+      "current": "t_33f093139ed1",
+      "history": [
+        "t_33f093139ed1"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000032": {
+      "kind": "panel",
+      "current": "p_71994622b79a",
+      "history": [
+        "p_71994622b79a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000032": {
+      "kind": "text",
+      "current": "t_088cdbfcc1e0",
+      "history": [
+        "t_088cdbfcc1e0"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000033": {
+      "kind": "panel",
+      "current": "p_e73afafe6101",
+      "history": [
+        "p_e73afafe6101"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000033": {
+      "kind": "text",
+      "current": "t_e0a9fd0227e0",
+      "history": [
+        "t_e0a9fd0227e0"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000034": {
+      "kind": "panel",
+      "current": "p_0cc2ce609c1a",
+      "history": [
+        "p_0cc2ce609c1a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000034": {
+      "kind": "text",
+      "current": "t_a7a932fd8a7b",
+      "history": [
+        "t_a7a932fd8a7b"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000018": {
+      "kind": "unit",
+      "current": "s_3ae8dbe76ca8",
+      "history": [
+        "s_3ae8dbe76ca8"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000019": {
+      "kind": "unit",
+      "current": "s_f4ca5e9ebdd5",
+      "history": [
+        "s_f4ca5e9ebdd5"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000020": {
+      "kind": "unit",
+      "current": "s_1a684f845085",
+      "history": [
+        "s_1a684f845085"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000021": {
+      "kind": "unit",
+      "current": "s_ad1a34dfe4ad",
+      "history": [
+        "s_ad1a34dfe4ad"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000022": {
+      "kind": "unit",
+      "current": "s_ae8029ddde01",
+      "history": [
+        "s_ae8029ddde01"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000023": {
+      "kind": "unit",
+      "current": "s_ed5f1dcdfb6e",
+      "history": [
+        "s_ed5f1dcdfb6e"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000024": {
+      "kind": "unit",
+      "current": "s_62028b15fc33",
+      "history": [
+        "s_62028b15fc33"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000025": {
+      "kind": "unit",
+      "current": "s_d8f4bc58179c",
+      "history": [
+        "s_d8f4bc58179c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000026": {
+      "kind": "unit",
+      "current": "s_7c26ab82a1ab",
+      "history": [
+        "s_7c26ab82a1ab"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000027": {
+      "kind": "unit",
+      "current": "s_16a5ac0467ea",
+      "history": [
+        "s_16a5ac0467ea"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000028": {
+      "kind": "unit",
+      "current": "s_69d30dff12ca",
+      "history": [
+        "s_69d30dff12ca"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000029": {
+      "kind": "unit",
+      "current": "s_8d6417b6aa58",
+      "history": [
+        "s_8d6417b6aa58"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000030": {
+      "kind": "unit",
+      "current": "s_92da8a03da90",
+      "history": [
+        "s_92da8a03da90"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000031": {
+      "kind": "unit",
+      "current": "s_fe12f1c37cb4",
+      "history": [
+        "s_fe12f1c37cb4"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000032": {
+      "kind": "unit",
+      "current": "s_8a9111f9ba39",
+      "history": [
+        "s_8a9111f9ba39"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000033": {
+      "kind": "unit",
+      "current": "s_2f9457348cdf",
+      "history": [
+        "s_2f9457348cdf"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000034": {
+      "kind": "unit",
+      "current": "s_c6162835c69b",
+      "history": [
+        "s_c6162835c69b"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000035": {
+      "kind": "unit",
+      "current": "s_3c63e14498f3",
+      "history": [
+        "s_3c63e14498f3"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000036": {
+      "kind": "unit",
+      "current": "s_bf42a013bbd5",
+      "history": [
+        "s_bf42a013bbd5"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000037": {
+      "kind": "unit",
+      "current": "s_d603415ad1fb",
+      "history": [
+        "s_d603415ad1fb"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000038": {
+      "kind": "unit",
+      "current": "s_9ac165e633f4",
+      "history": [
+        "s_9ac165e633f4"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000039": {
+      "kind": "unit",
+      "current": "s_165bdd86ba39",
+      "history": [
+        "s_165bdd86ba39"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000040": {
+      "kind": "unit",
+      "current": "s_ef83cfb643a6",
+      "history": [
+        "s_ef83cfb643a6"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000041": {
+      "kind": "unit",
+      "current": "s_30c603f89b4f",
+      "history": [
+        "s_30c603f89b4f"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000042": {
+      "kind": "unit",
+      "current": "s_0620ec0b19f8",
+      "history": [
+        "s_0620ec0b19f8"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000043": {
+      "kind": "unit",
+      "current": "s_bdd1c9b363d4",
+      "history": [
+        "s_bdd1c9b363d4"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000044": {
+      "kind": "unit",
+      "current": "s_1eb176455343",
+      "history": [
+        "s_1eb176455343"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000045": {
+      "kind": "unit",
+      "current": "s_5d226dbbb32a",
+      "history": [
+        "s_5d226dbbb32a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000046": {
+      "kind": "unit",
+      "current": "s_ff90de98799d",
+      "history": [
+        "s_ff90de98799d"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000047": {
+      "kind": "unit",
+      "current": "s_d0454b21cf10",
+      "history": [
+        "s_d0454b21cf10"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000048": {
+      "kind": "unit",
+      "current": "s_ba946d169fa6",
+      "history": [
+        "s_ba946d169fa6"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000049": {
+      "kind": "unit",
+      "current": "s_5f53e0a53868",
+      "history": [
+        "s_5f53e0a53868"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000050": {
+      "kind": "unit",
+      "current": "s_2ec7db3aa380",
+      "history": [
+        "s_2ec7db3aa380"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000051": {
+      "kind": "unit",
+      "current": "s_bf9dd78b3941",
+      "history": [
+        "s_bf9dd78b3941"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000035": {
+      "kind": "panel",
+      "current": "p_c414e7250c4c",
+      "history": [
+        "p_c414e7250c4c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000035": {
+      "kind": "text",
+      "current": "t_4b8509842330",
+      "history": [
+        "t_4b8509842330"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000036": {
+      "kind": "panel",
+      "current": "p_c8acb8292fc5",
+      "history": [
+        "p_c8acb8292fc5"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000036": {
+      "kind": "text",
+      "current": "t_5b424a5e3d7d",
+      "history": [
+        "t_5b424a5e3d7d"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000037": {
+      "kind": "panel",
+      "current": "p_5f0dd3207717",
+      "history": [
+        "p_5f0dd3207717"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000037": {
+      "kind": "text",
+      "current": "t_6e0efb18b172",
+      "history": [
+        "t_6e0efb18b172"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000038": {
+      "kind": "panel",
+      "current": "p_be1faf5b0177",
+      "history": [
+        "p_be1faf5b0177"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000038": {
+      "kind": "text",
+      "current": "t_df8317e4e103",
+      "history": [
+        "t_df8317e4e103"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000039": {
+      "kind": "panel",
+      "current": "p_cf502c82a674",
+      "history": [
+        "p_cf502c82a674"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000039": {
+      "kind": "text",
+      "current": "t_9cb46a8c12df",
+      "history": [
+        "t_9cb46a8c12df"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000040": {
+      "kind": "panel",
+      "current": "p_a6db50020ddd",
+      "history": [
+        "p_a6db50020ddd"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000040": {
+      "kind": "text",
+      "current": "t_bec774e4dacb",
+      "history": [
+        "t_bec774e4dacb"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000041": {
+      "kind": "panel",
+      "current": "p_7f144ac2a49d",
+      "history": [
+        "p_7f144ac2a49d"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000041": {
+      "kind": "text",
+      "current": "t_e5f9229b4d12",
+      "history": [
+        "t_e5f9229b4d12"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000042": {
+      "kind": "panel",
+      "current": "p_6fb0d03f2193",
+      "history": [
+        "p_6fb0d03f2193"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000042": {
+      "kind": "text",
+      "current": "t_627bf93232e4",
+      "history": [
+        "t_627bf93232e4"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000043": {
+      "kind": "panel",
+      "current": "p_55fca5a7e2bc",
+      "history": [
+        "p_55fca5a7e2bc"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000043": {
+      "kind": "text",
+      "current": "t_af074e8540b2",
+      "history": [
+        "t_af074e8540b2"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000044": {
+      "kind": "panel",
+      "current": "p_cd080b9ddf90",
+      "history": [
+        "p_cd080b9ddf90"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000044": {
+      "kind": "text",
+      "current": "t_a1bd7b604afe",
+      "history": [
+        "t_a1bd7b604afe"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000045": {
+      "kind": "panel",
+      "current": "p_40910fde598f",
+      "history": [
+        "p_40910fde598f"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000045": {
+      "kind": "text",
+      "current": "t_01705f46133a",
+      "history": [
+        "t_01705f46133a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000046": {
+      "kind": "panel",
+      "current": "p_35711e46e897",
+      "history": [
+        "p_35711e46e897"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000046": {
+      "kind": "text",
+      "current": "t_0f2222a9d87a",
+      "history": [
+        "t_0f2222a9d87a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000047": {
+      "kind": "panel",
+      "current": "p_756b563e1ec0",
+      "history": [
+        "p_756b563e1ec0"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000047": {
+      "kind": "text",
+      "current": "t_fd2e0c778c4c",
+      "history": [
+        "t_fd2e0c778c4c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000048": {
+      "kind": "panel",
+      "current": "p_5a9b48b8eaec",
+      "history": [
+        "p_5a9b48b8eaec"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000048": {
+      "kind": "text",
+      "current": "t_08d0fd0c305c",
+      "history": [
+        "t_08d0fd0c305c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000049": {
+      "kind": "panel",
+      "current": "p_02898e43558e",
+      "history": [
+        "p_02898e43558e"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000049": {
+      "kind": "text",
+      "current": "t_772f95a7cb83",
+      "history": [
+        "t_772f95a7cb83"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000050": {
+      "kind": "panel",
+      "current": "p_29b9053b74d9",
+      "history": [
+        "p_29b9053b74d9"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000050": {
+      "kind": "text",
+      "current": "t_d6d78aa362e4",
+      "history": [
+        "t_d6d78aa362e4"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000051": {
+      "kind": "panel",
+      "current": "p_cbf3ebfc8ae5",
+      "history": [
+        "p_cbf3ebfc8ae5"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000051": {
+      "kind": "text",
+      "current": "t_0dbf7181fab7",
+      "history": [
+        "t_0dbf7181fab7"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000052": {
+      "kind": "panel",
+      "current": "p_e799984a6833",
+      "history": [
+        "p_e799984a6833"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000052": {
+      "kind": "text",
+      "current": "t_d7673620e616",
+      "history": [
+        "t_d7673620e616"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000053": {
+      "kind": "panel",
+      "current": "p_df30bc57bace",
+      "history": [
+        "p_df30bc57bace"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000053": {
+      "kind": "text",
+      "current": "t_72271b41f0c3",
+      "history": [
+        "t_72271b41f0c3"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000054": {
+      "kind": "panel",
+      "current": "p_ca9a35431b76",
+      "history": [
+        "p_ca9a35431b76"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000054": {
+      "kind": "text",
+      "current": "t_2fd762e60d87",
+      "history": [
+        "t_2fd762e60d87"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000055": {
+      "kind": "panel",
+      "current": "p_5f2f446c6faa",
+      "history": [
+        "p_5f2f446c6faa"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000055": {
+      "kind": "text",
+      "current": "t_036caf2a9b43",
+      "history": [
+        "t_036caf2a9b43"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000052": {
+      "kind": "unit",
+      "current": "s_dfd1652ca747",
+      "history": [
+        "s_dfd1652ca747"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000053": {
+      "kind": "unit",
+      "current": "s_67725b6f0356",
+      "history": [
+        "s_67725b6f0356"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000054": {
+      "kind": "unit",
+      "current": "s_e73a5a8fe922",
+      "history": [
+        "s_e73a5a8fe922"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000055": {
+      "kind": "unit",
+      "current": "s_e23f15d8ff02",
+      "history": [
+        "s_e23f15d8ff02"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000056": {
+      "kind": "unit",
+      "current": "s_6eca31dae883",
+      "history": [
+        "s_6eca31dae883"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000057": {
+      "kind": "unit",
+      "current": "s_26f7a547bf5d",
+      "history": [
+        "s_26f7a547bf5d"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000058": {
+      "kind": "unit",
+      "current": "s_28ff3fb7ed3c",
+      "history": [
+        "s_28ff3fb7ed3c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000059": {
+      "kind": "unit",
+      "current": "s_41e594bd9e6d",
+      "history": [
+        "s_41e594bd9e6d"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000060": {
+      "kind": "unit",
+      "current": "s_7274aed5342f",
+      "history": [
+        "s_7274aed5342f"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000061": {
+      "kind": "unit",
+      "current": "s_6b477370b517",
+      "history": [
+        "s_6b477370b517"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000062": {
+      "kind": "unit",
+      "current": "s_f8e74f0b9056",
+      "history": [
+        "s_f8e74f0b9056"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000063": {
+      "kind": "unit",
+      "current": "s_a32694a9443b",
+      "history": [
+        "s_a32694a9443b"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000064": {
+      "kind": "unit",
+      "current": "s_8c828bc8198d",
+      "history": [
+        "s_8c828bc8198d"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000065": {
+      "kind": "unit",
+      "current": "s_ac759abf9c8a",
+      "history": [
+        "s_ac759abf9c8a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000066": {
+      "kind": "unit",
+      "current": "s_29e68b48df16",
+      "history": [
+        "s_29e68b48df16"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000067": {
+      "kind": "unit",
+      "current": "s_72f3c379a6c3",
+      "history": [
+        "s_72f3c379a6c3"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000068": {
+      "kind": "unit",
+      "current": "s_6c71291c659f",
+      "history": [
+        "s_6c71291c659f"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000069": {
+      "kind": "unit",
+      "current": "s_4402e04bc78b",
+      "history": [
+        "s_4402e04bc78b"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000070": {
+      "kind": "unit",
+      "current": "s_84210781deaa",
+      "history": [
+        "s_84210781deaa"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000071": {
+      "kind": "unit",
+      "current": "s_6390ce0a3544",
+      "history": [
+        "s_6390ce0a3544"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000072": {
+      "kind": "unit",
+      "current": "s_0133af38727a",
+      "history": [
+        "s_0133af38727a"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000056": {
+      "kind": "panel",
+      "current": "p_9f43d38c75c0",
+      "history": [
+        "p_9f43d38c75c0"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000056": {
+      "kind": "text",
+      "current": "t_646634d7122c",
+      "history": [
+        "t_646634d7122c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000057": {
+      "kind": "panel",
+      "current": "p_110367e4b26b",
+      "history": [
+        "p_110367e4b26b"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000057": {
+      "kind": "text",
+      "current": "t_781034e7b111",
+      "history": [
+        "t_781034e7b111"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000058": {
+      "kind": "panel",
+      "current": "p_74049e6ef06d",
+      "history": [
+        "p_74049e6ef06d"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000058": {
+      "kind": "text",
+      "current": "t_86e5f099d695",
+      "history": [
+        "t_86e5f099d695"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "pa_000059": {
+      "kind": "panel",
+      "current": "p_de1dbde9883c",
+      "history": [
+        "p_de1dbde9883c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "ta_000059": {
+      "kind": "text",
+      "current": "t_e415aced5e29",
+      "history": [
+        "t_e415aced5e29"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000073": {
+      "kind": "unit",
+      "current": "s_b40958d8b84c",
+      "history": [
+        "s_b40958d8b84c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000074": {
+      "kind": "unit",
+      "current": "s_81bf7e2e12a6",
+      "history": [
+        "s_81bf7e2e12a6"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000075": {
+      "kind": "unit",
+      "current": "s_2ba087eb893c",
+      "history": [
+        "s_2ba087eb893c"
+      ],
+      "locked": false,
+      "retired": false
+    },
+    "sa_000076": {
+      "kind": "unit",
+      "current": "s_f1063d3c995f",
+      "history": [
+        "s_f1063d3c995f"
+      ],
+      "locked": false,
+      "retired": false
+    }
+  },
+  "layout_overrides": {},
+  "overrides": {
+    "ta_000001": {
+      "original": null,
+      "text": "Dashboard override test",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "ta_000004": {
+      "original": null,
+      "text": "dasdas ",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000001": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 1.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000002": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 2.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000003": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 3.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000018": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 18.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000019": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 19.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000020": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 20.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000021": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 21.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000022": {
+      "original": null,
+      "text": "Dialogue at panel 5 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000023": {
+      "original": null,
+      "text": "Dialogue at panel 6 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000024": {
+      "original": null,
+      "text": "Dialogue at panel 7 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000025": {
+      "original": null,
+      "text": "Dialogue at panel 8 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000026": {
+      "original": null,
+      "text": "Dialogue at panel 9 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000027": {
+      "original": null,
+      "text": "Dialogue at panel 10 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000028": {
+      "original": null,
+      "text": "Dialogue at panel 11 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000029": {
+      "original": null,
+      "text": "Dialogue at panel 12 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000030": {
+      "original": null,
+      "text": "Dialogue at panel 13 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000031": {
+      "original": null,
+      "text": "Dialogue at panel 14 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000032": {
+      "original": null,
+      "text": "Dialogue at panel 15 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000033": {
+      "original": null,
+      "text": "Dialogue at panel 16 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000034": {
+      "original": null,
+      "text": "Dialogue at panel 17 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000035": {
+      "original": null,
+      "text": "ihuong \nCAONKEAE \nVay lakhoang 35m \nnang \nuc.cua \ntu.diem.kich.hoat \nfa cothevuon \nxa den canh \nma \ncua doi dien \n225 \nconso:may.man \nhanh lang \ncua-ta \nanen.co \nnay,noi dan \nthela36m. \nra loidi \nchung V.VIP.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000036": {
+      "original": null,
+      "text": "RE. \nRE \nRE",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000037": {
+      "original": null,
+      "text": "CRE \n4 \nJ",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000038": {
+      "original": null,
+      "text": "Sat nut...!! \nNhung no vuon \ntoi tan cua!! \nE. \nAI vAay...? \nDuOC \nKHONG \nThe?",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000039": {
+      "original": null,
+      "text": "HAN CAM VU \nHAN... \nKHI MA QUAN \nDOI HOANG GIA \nLA AI \nBEN DO KHONG \nVAY?... \nCO pHAn UNG \nNHUNG \nGi, chAc co \nMA... \nCHITHINAO DO \nNhi?",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000040": {
+      "original": null,
+      "text": "Nhung khong \nChung \nDUNG CAN \nphan uing... \nPHAI \nchac chan \nTHIEPVAOCHi \nvi quan doi \nDo \nTH! Bi MAT, Lo \nda thay \nCO GI THI CHi \nhoang gia ben \nCHUNG TA B! \nnay khong phan \nta...! \nung gi. \nCu De ho Lo.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000041": {
+      "original": null,
+      "text": "Neu ta buoc ra khoi \nNguoc \nVay la xong!! Nang luc \nthe gioi nang lyc hoac \nMien la ta khong \nlai, \ncua ta co ban kinh anh \ngiai tru \"Tuyet\", nang \ngiai tru \"Tuyet\", \nhuong khoang 36m! Va \nluc se bi reset va \nta co the lien tuc \n\" 10 giay sat na\" khong \nnhung nguoi bi anh \nco tac dung voi nhung \nsu dung \"10 giay \nhuong ben trong se tro \nnguoi ben ngoai pham vi!! \nsat na\" voi ranh gioi \nlai binh thuong!! \n36m!!",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000042": {
+      "original": null,
+      "text": "HANER \nTHUCTIEN \nNo:419 \n1004 \nFOGASHIYOSHIHIRO \nXIN YUI LONG \nGIU BiNH TiNH!!",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000043": {
+      "original": null,
+      "text": "THICUAQUAN \nTHIET QUAN \nDOI HOANG \n1004 \nGIA!! \nLUAT DAC \nBIET!!",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000044": {
+      "original": null,
+      "text": "Phong \nChung se chang \nNeu ta binhitinh, \nHayla \nPhong 1006:c0 quan \n1002 \nnghi ngo gi saul \ntutindiencua, \nh \nbi:ten \ndoi:r \nhoanggiacanh \nkhongco \nxac nhan linhicanh \niBig \ndu co lot vao goc \nBaka \nkhono \nqae \nxut \nnguoicanh \nben nay hoan toan \nmat cua chung va \nne \nuc \ncua \nqac \nkhong.co.dong \ntinh \nchung nhin ye \nxa \nqiam \nnao. \nphia-ta..! \nong \n:trong \nkhuVVIP",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000045": {
+      "original": null,
+      "text": "Cang \nXa anfen \nTien \nthem 5~ 6m nua \nRE... \ntri kich hoat), \n(vi t \nchac \nla out... \nKhi \nnang \nRE... \nnhip \nnhieu song \nhet l \nhieu luc, co \nRE... \nluc \nle ta",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000046": {
+      "original": null,
+      "text": "1004",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000047": {
+      "original": null,
+      "text": "Dialogue at panel 13 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000048": {
+      "original": null,
+      "text": "Phu~ \nDUOC \nROI",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000049": {
+      "original": null,
+      "text": "Dialogue at panel 15 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000050": {
+      "original": null,
+      "text": "Dialogue at panel 16 region 1",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000051": {
+      "original": null,
+      "text": "7. \n0",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000004": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 4.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000005": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 5.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000006": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 6.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000007": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 7.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000008": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 8.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000009": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 9.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000010": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 10.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000011": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 11.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000012": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 12.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000013": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 13.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000014": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 14.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000015": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 15.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000016": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 16.",
+      "speaker_id": null,
+      "reviewed": true
+    },
+    "sa_000017": {
+      "original": null,
+      "text": "Lời dẫn chuyện cho khung tranh 17.",
+      "speaker_id": null,
+      "reviewed": true
+    }
+  },
+  "characters": {},
+  "animation_templates": {},
+  "sequence": {
+    "video_tracks": [
+      {
+        "clips": [
+          {
+            "panel_ref": "pa_000001",
+            "start_ms": 0,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000002",
+            "start_ms": 3000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000003",
+            "start_ms": 6000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000004",
+            "start_ms": 9000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000005",
+            "start_ms": 12000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000006",
+            "start_ms": 15000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000007",
+            "start_ms": 18000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000008",
+            "start_ms": 21000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000009",
+            "start_ms": 24000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000010",
+            "start_ms": 27000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000011",
+            "start_ms": 30000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000012",
+            "start_ms": 33000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000013",
+            "start_ms": 36000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000014",
+            "start_ms": 39000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000015",
+            "start_ms": 42000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000016",
+            "start_ms": 45000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          },
+          {
+            "panel_ref": "pa_000017",
+            "start_ms": 48000,
+            "duration_ms": 3000,
+            "in_point": 0,
+            "transform": {},
+            "visual_effects": {
+              "template_ref": "tpl_slow_zoom"
+            }
+          }
+        ]
+      }
+    ],
+    "audio_tracks": [
+      {
+        "clips": [
+          {
+            "audio_ref": "sa_000001",
+            "start_ms": 0,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000002",
+            "start_ms": 3000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000003",
+            "start_ms": 6000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000004",
+            "start_ms": 9000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000005",
+            "start_ms": 12000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000006",
+            "start_ms": 15000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000007",
+            "start_ms": 18000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000008",
+            "start_ms": 21000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000009",
+            "start_ms": 24000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000010",
+            "start_ms": 27000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000011",
+            "start_ms": 30000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000012",
+            "start_ms": 33000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000013",
+            "start_ms": 36000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000014",
+            "start_ms": 39000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000015",
+            "start_ms": 42000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000016",
+            "start_ms": 45000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          },
+          {
+            "audio_ref": "sa_000017",
+            "start_ms": 48000,
+            "synced_duration_ms": 2500,
+            "synced_artifact_version": 1
+          }
+        ]
+      }
+    ],
+    "overlay_tracks": []
+  }
+}

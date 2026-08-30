@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "stage": "layout",
+  "chapter_id": "ch_sample",
+  "artifact_version": 1,
+  "manifest": {
+    "engine": "manga-image-translator/detector",
+    "engine_version": "0.1.0",
+    "timestamp": "2026-08-30T04:36:48.925011+00:00",
+    "inputs": [
+      {
+        "file": "tests/fixtures/ch_sample/pages/3f124a39-8b4e-44f9-be5e-aa14a2f2c072.png",
+        "sha256": "6cd9ec871e1bfaac375964c2c7bf3e1b242fe12315f41d180ba8cf78eb04fcc1"
+      },
+      {
+        "file": "tests/fixtures/ch_sample/pages/be61276f-e15a-41b1-a398-5789663e322f.png",
+        "sha256": "d207e408268cf9d4d171bc92bb71f931b42bce878aadbdabdf2c2a477a3ee2fb"
+      },
+      {
+        "file": "tests/fixtures/ch_sample/pages/dafbc942-b220-46b1-b55a-0f57b25f77d3.png",
+        "sha256": "1b42d7723a58adca0914cf42ebfcebf2970a14082b38283d9c63a171a1099b85"
+      },
+      {
+        "file": "tests/fixtures/ch_sample/pages/fe2e581b-db86-4989-8299-86791145e331.png",
+        "sha256": "c70486183ede171a276b8f28158278d92c16cd3aa54582e90b2b25fe1346813d"
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": "p_283da5a479e4",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/3f124a39-8b4e-44f9-be5e-aa14a2f2c072.png",
+        "bbox": [
+          0,
+          45,
+          1403,
+          499
+        ]
+      },
+      "reading_order": 1,
+      "text_regions": [
+        {
+          "id": "t_d4836fb0db43",
+          "bbox": [
+            771,
+            94,
+            491,
+            124
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_730d4d5b069f",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/3f124a39-8b4e-44f9-be5e-aa14a2f2c072.png",
+        "bbox": [
+          0,
+          564,
+          1403,
+          331
+        ]
+      },
+      "reading_order": 2,
+      "text_regions": [
+        {
+          "id": "t_82b1404e2f40",
+          "bbox": [
+            771,
+            597,
+            491,
+            82
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_e8a783d57614",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/3f124a39-8b4e-44f9-be5e-aa14a2f2c072.png",
+        "bbox": [
+          0,
+          1750,
+          1403,
+          194
+        ]
+      },
+      "reading_order": 3,
+      "text_regions": [
+        {
+          "id": "t_2d3ec0216bdd",
+          "bbox": [
+            771,
+            1769,
+            491,
+            60
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_3b83b4860155",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/be61276f-e15a-41b1-a398-5789663e322f.png",
+        "bbox": [
+          0,
+          95,
+          1403,
+          710
+        ]
+      },
+      "reading_order": 4,
+      "text_regions": [
+        {
+          "id": "t_843f55da3a14",
+          "bbox": [
+            771,
+            166,
+            491,
+            177
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_4937fe67a9d0",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/be61276f-e15a-41b1-a398-5789663e322f.png",
+        "bbox": [
+          0,
+          849,
+          1403,
+          274
+        ]
+      },
+      "reading_order": 5,
+      "text_regions": [
+        {
+          "id": "t_079c062ef061",
+          "bbox": [
+            771,
+            876,
+            491,
+            68
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_7c87daa27dd4",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/be61276f-e15a-41b1-a398-5789663e322f.png",
+        "bbox": [
+          0,
+          1167,
+          1403,
+          319
+        ]
+      },
+      "reading_order": 6,
+      "text_regions": [
+        {
+          "id": "t_85fe1a092b36",
+          "bbox": [
+            771,
+            1198,
+            491,
+            79
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_f27014cf91cb",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/be61276f-e15a-41b1-a398-5789663e322f.png",
+        "bbox": [
+          0,
+          1487,
+          1403,
+          503
+        ]
+      },
+      "reading_order": 7,
+      "text_regions": [
+        {
+          "id": "t_56672f8cb829",
+          "bbox": [
+            771,
+            1537,
+            491,
+            125
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_767f6153d31b",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/dafbc942-b220-46b1-b55a-0f57b25f77d3.png",
+        "bbox": [
+          0,
+          0,
+          1403,
+          528
+        ]
+      },
+      "reading_order": 8,
+      "text_regions": [
+        {
+          "id": "t_ad9f5fd6ddc5",
+          "bbox": [
+            771,
+            52,
+            491,
+            132
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_5afdf712f265",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/dafbc942-b220-46b1-b55a-0f57b25f77d3.png",
+        "bbox": [
+          0,
+          572,
+          1403,
+          401
+        ]
+      },
+      "reading_order": 9,
+      "text_regions": [
+        {
+          "id": "t_ee56e3a2e255",
+          "bbox": [
+            771,
+            612,
+            491,
+            100
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_38957713e8d1",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/dafbc942-b220-46b1-b55a-0f57b25f77d3.png",
+        "bbox": [
+          0,
+          1020,
+          1403,
+          473
+        ]
+      },
+      "reading_order": 10,
+      "text_regions": [
+        {
+          "id": "t_0923dabcb3e9",
+          "bbox": [
+            771,
+            1067,
+            491,
+            118
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_fb4017493876",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/dafbc942-b220-46b1-b55a-0f57b25f77d3.png",
+        "bbox": [
+          0,
+          1546,
+          1403,
+          180
+        ]
+      },
+      "reading_order": 11,
+      "text_regions": [
+        {
+          "id": "t_be1b629907a7",
+          "bbox": [
+            771,
+            1564,
+            491,
+            60
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_76e1790d6de8",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/fe2e581b-db86-4989-8299-86791145e331.png",
+        "bbox": [
+          0,
+          0,
+          1403,
+          184
+        ]
+      },
+      "reading_order": 12,
+      "text_regions": [
+        {
+          "id": "t_9430e7424811",
+          "bbox": [
+            771,
+            18,
+            491,
+            60
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_52e407cb25b4",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/fe2e581b-db86-4989-8299-86791145e331.png",
+        "bbox": [
+          0,
+          185,
+          1403,
+          329
+        ]
+      },
+      "reading_order": 13,
+      "text_regions": [
+        {
+          "id": "t_f2d0716b4d0a",
+          "bbox": [
+            771,
+            217,
+            491,
+            82
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_0eb080868326",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/fe2e581b-db86-4989-8299-86791145e331.png",
+        "bbox": [
+          0,
+          558,
+          1403,
+          208
+        ]
+      },
+      "reading_order": 14,
+      "text_regions": [
+        {
+          "id": "t_9a1ab2a4cd59",
+          "bbox": [
+            771,
+            578,
+            491,
+            60
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_7ee2afaad294",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/fe2e581b-db86-4989-8299-86791145e331.png",
+        "bbox": [
+          0,
+          810,
+          1403,
+          168
+        ]
+      },
+      "reading_order": 15,
+      "text_regions": [
+        {
+          "id": "t_593e6c998689",
+          "bbox": [
+            771,
+            826,
+            491,
+            60
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_d8371b7bcf78",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/fe2e581b-db86-4989-8299-86791145e331.png",
+        "bbox": [
+          0,
+          1023,
+          1403,
+          454
+        ]
+      },
+      "reading_order": 16,
+      "text_regions": [
+        {
+          "id": "t_16caec35edf9",
+          "bbox": [
+            771,
+            1068,
+            491,
+            113
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_de306ae44f3c",
+      "source": {
+        "image": "tests/fixtures/ch_sample/pages/fe2e581b-db86-4989-8299-86791145e331.png",
+        "bbox": [
+          0,
+          1541,
+          1403,
+          507
+        ]
+      },
+      "reading_order": 17,
+      "text_regions": [
+        {
+          "id": "t_fe214516a734",
+          "bbox": [
+            771,
+            1591,
+            491,
+            126
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    }
+  ]
+}

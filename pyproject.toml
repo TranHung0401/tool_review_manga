@@ -1,0 +1,53 @@
+[project]
+name = "manga-pipeline"
+version = "0.1.0"
+description = "Comic/Manga to Video Pipeline Core (v5 architecture)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.7.0",
+    "pillow>=10.0.0",
+    "edge-tts>=6.1.0",
+    "typer>=0.12.0",
+    "numpy>=1.24.0",
+    "fastapi>=0.141.1",
+    "uvicorn>=0.52.4",
+    "httpx>=0.28.1",
+]
+
+[project.scripts]
+manga-pipeline = "manga_pipeline.cli.main:app"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-mock>=3.12.0",
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/manga_pipeline"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N"]
+ignore = ["N806", "N803", "E501", "B008"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+exclude = ["\\.venv/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

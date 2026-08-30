@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "stage": "layout",
+  "chapter_id": "ch01xx",
+  "artifact_version": 1,
+  "manifest": {
+    "engine": "manga-image-translator/detector",
+    "engine_version": "0.1.0",
+    "timestamp": "2026-08-30T08:00:34.296764+00:00",
+    "inputs": [
+      {
+        "file": "pages/ch01xx/01.png",
+        "sha256": "1b42d7723a58adca0914cf42ebfcebf2970a14082b38283d9c63a171a1099b85"
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": "p_9f43d38c75c0",
+      "source": {
+        "image": "pages/ch01xx/01.png",
+        "bbox": [
+          0,
+          0,
+          1403,
+          528
+        ]
+      },
+      "reading_order": 1,
+      "text_regions": [
+        {
+          "id": "t_646634d7122c",
+          "bbox": [
+            771,
+            52,
+            491,
+            132
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_110367e4b26b",
+      "source": {
+        "image": "pages/ch01xx/01.png",
+        "bbox": [
+          0,
+          572,
+          1403,
+          401
+        ]
+      },
+      "reading_order": 2,
+      "text_regions": [
+        {
+          "id": "t_781034e7b111",
+          "bbox": [
+            771,
+            612,
+            491,
+            100
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_74049e6ef06d",
+      "source": {
+        "image": "pages/ch01xx/01.png",
+        "bbox": [
+          0,
+          1020,
+          1403,
+          473
+        ]
+      },
+      "reading_order": 3,
+      "text_regions": [
+        {
+          "id": "t_86e5f099d695",
+          "bbox": [
+            771,
+            1067,
+            491,
+            118
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    },
+    {
+      "id": "p_de1dbde9883c",
+      "source": {
+        "image": "pages/ch01xx/01.png",
+        "bbox": [
+          0,
+          1546,
+          1403,
+          180
+        ]
+      },
+      "reading_order": 4,
+      "text_regions": [
+        {
+          "id": "t_e415aced5e29",
+          "bbox": [
+            771,
+            1564,
+            491,
+            60
+          ],
+          "region_type": "bubble"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2018 @@
+{
+  "schema_version": 1,
+  "stage": "ocr",
+  "chapter_id": "ch01",
+  "artifact_version": 1,
+  "depends_on": {
+    "stage": "layout",
+    "artifact_version": 1,
+    "layout_overrides_hash": null
+  },
+  "manifest": {
+    "engine": "rapidocr",
+    "model": "ch_PP-OCRv4_rec",
+    "engine_version": "1.4.4",
+    "timestamp": "2026-08-30T07:55:51.613060+00:00",
+    "scale_factor": 1.0
+  },
+  "panels": [
+    {
+      "id": "p_e799984a6833",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_e799984a6833_1_b43d49",
+          "original": "HANER",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.61
+        },
+        {
+          "id": "t_p_e799984a6833_2_bbf397",
+          "original": "THUCTIEN",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_e799984a6833_3_8a918a",
+          "original": "No:419",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.94
+        },
+        {
+          "id": "t_p_e799984a6833_4_fed333",
+          "original": "1004",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_e799984a6833_5_05b86e",
+          "original": "FOGASHIYOSHIHIRO",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_e799984a6833_6_89bdee",
+          "original": "XIN YUI LONG",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_e799984a6833_7_2de7e1",
+          "original": "GIU BiNH TiNH!!",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.85
+        }
+      ]
+    },
+    {
+      "id": "p_df30bc57bace",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_df30bc57bace_1_9b3976",
+          "original": "THICUAQUAN",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_df30bc57bace_2_037547",
+          "original": "THIET QUAN",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_df30bc57bace_3_6333c3",
+          "original": "DOI HOANG",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_df30bc57bace_4_fed333",
+          "original": "1004",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_df30bc57bace_5_e76754",
+          "original": "GIA!!",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_df30bc57bace_6_cb73df",
+          "original": "LUAT DAC",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_df30bc57bace_7_d2f7db",
+          "original": "BIET!!",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "id": "p_ca9a35431b76",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_ca9a35431b76_1_568fb6",
+          "original": "Phong",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_ca9a35431b76_2_482389",
+          "original": "Chung se chang",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_ca9a35431b76_3_93ec91",
+          "original": "Neu ta binhitinh,",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.93
+        },
+        {
+          "id": "t_p_ca9a35431b76_4_be8b2e",
+          "original": "Hayla",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_ca9a35431b76_5_0f71f8",
+          "original": "Phong 1006:c0 quan",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_ca9a35431b76_6_fba9d8",
+          "original": "1002",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_ca9a35431b76_7_cb33aa",
+          "original": "nghi ngo gi saul",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        },
+        {
+          "id": "t_p_ca9a35431b76_8_b57afe",
+          "original": "tutindiencua,",
+          "text_type": "dialogue",
+          "reading_order": 8,
+          "speaker_id_hint": null,
+          "confidence": 0.89
+        },
+        {
+          "id": "t_p_ca9a35431b76_9_2510c3",
+          "original": "h",
+          "text_type": "dialogue",
+          "reading_order": 9,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_ca9a35431b76_10_69bf61",
+          "original": "bi:ten",
+          "text_type": "dialogue",
+          "reading_order": 10,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_ca9a35431b76_11_331e56",
+          "original": "doi:r",
+          "text_type": "dialogue",
+          "reading_order": 11,
+          "speaker_id_hint": null,
+          "confidence": 0.8
+        },
+        {
+          "id": "t_p_ca9a35431b76_12_1608fd",
+          "original": "hoanggiacanh",
+          "text_type": "dialogue",
+          "reading_order": 12,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_ca9a35431b76_13_b5712b",
+          "original": "khongco",
+          "text_type": "dialogue",
+          "reading_order": 13,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_ca9a35431b76_14_f2d4c5",
+          "original": "xac nhan linhicanh",
+          "text_type": "dialogue",
+          "reading_order": 14,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_ca9a35431b76_15_dac25a",
+          "original": "iBig",
+          "text_type": "dialogue",
+          "reading_order": 15,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        },
+        {
+          "id": "t_p_ca9a35431b76_16_847033",
+          "original": "du co lot vao goc",
+          "text_type": "dialogue",
+          "reading_order": 16,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_ca9a35431b76_17_1ca78d",
+          "original": "Baka",
+          "text_type": "dialogue",
+          "reading_order": 17,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_ca9a35431b76_18_34da2d",
+          "original": "khono",
+          "text_type": "dialogue",
+          "reading_order": 18,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        },
+        {
+          "id": "t_p_ca9a35431b76_19_dcd403",
+          "original": "qae",
+          "text_type": "dialogue",
+          "reading_order": 19,
+          "speaker_id_hint": null,
+          "confidence": 0.77
+        },
+        {
+          "id": "t_p_ca9a35431b76_20_c6e4d3",
+          "original": "xut",
+          "text_type": "dialogue",
+          "reading_order": 20,
+          "speaker_id_hint": null,
+          "confidence": 0.58
+        },
+        {
+          "id": "t_p_ca9a35431b76_21_4b1746",
+          "original": "nguoicanh",
+          "text_type": "dialogue",
+          "reading_order": 21,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_ca9a35431b76_22_8279e5",
+          "original": "ben nay hoan toan",
+          "text_type": "dialogue",
+          "reading_order": 22,
+          "speaker_id_hint": null,
+          "confidence": 0.93
+        },
+        {
+          "id": "t_p_ca9a35431b76_23_78793f",
+          "original": "mat cua chung va",
+          "text_type": "dialogue",
+          "reading_order": 23,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_ca9a35431b76_24_d4f917",
+          "original": "ne",
+          "text_type": "dialogue",
+          "reading_order": 24,
+          "speaker_id_hint": null,
+          "confidence": 0.65
+        },
+        {
+          "id": "t_p_ca9a35431b76_25_d38af0",
+          "original": "uc",
+          "text_type": "dialogue",
+          "reading_order": 25,
+          "speaker_id_hint": null,
+          "confidence": 0.74
+        },
+        {
+          "id": "t_p_ca9a35431b76_26_c85207",
+          "original": "cua",
+          "text_type": "dialogue",
+          "reading_order": 26,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_ca9a35431b76_27_4178b3",
+          "original": "qac",
+          "text_type": "dialogue",
+          "reading_order": 27,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        },
+        {
+          "id": "t_p_ca9a35431b76_28_3e5211",
+          "original": "khong.co.dong",
+          "text_type": "dialogue",
+          "reading_order": 28,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_ca9a35431b76_29_802df3",
+          "original": "tinh",
+          "text_type": "dialogue",
+          "reading_order": 29,
+          "speaker_id_hint": null,
+          "confidence": 0.76
+        },
+        {
+          "id": "t_p_ca9a35431b76_30_4f3792",
+          "original": "chung nhin ye",
+          "text_type": "dialogue",
+          "reading_order": 30,
+          "speaker_id_hint": null,
+          "confidence": 0.89
+        },
+        {
+          "id": "t_p_ca9a35431b76_31_53e59f",
+          "original": "xa",
+          "text_type": "dialogue",
+          "reading_order": 31,
+          "speaker_id_hint": null,
+          "confidence": 0.9
+        },
+        {
+          "id": "t_p_ca9a35431b76_32_020372",
+          "original": "qiam",
+          "text_type": "dialogue",
+          "reading_order": 32,
+          "speaker_id_hint": null,
+          "confidence": 0.9
+        },
+        {
+          "id": "t_p_ca9a35431b76_33_6a2b24",
+          "original": "nao.",
+          "text_type": "dialogue",
+          "reading_order": 33,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_ca9a35431b76_34_4c27e9",
+          "original": "phia-ta..!",
+          "text_type": "dialogue",
+          "reading_order": 34,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        },
+        {
+          "id": "t_p_ca9a35431b76_35_ddf10d",
+          "original": "ong",
+          "text_type": "dialogue",
+          "reading_order": 35,
+          "speaker_id_hint": null,
+          "confidence": 0.89
+        },
+        {
+          "id": "t_p_ca9a35431b76_36_1a7bca",
+          "original": ":trong",
+          "text_type": "dialogue",
+          "reading_order": 36,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_ca9a35431b76_37_f34956",
+          "original": "khuVVIP",
+          "text_type": "dialogue",
+          "reading_order": 37,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "id": "p_5f2f446c6faa",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_5f2f446c6faa_1_23ab5a",
+          "original": "Cang",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_5f2f446c6faa_2_b34fab",
+          "original": "Xa anfen",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.85
+        },
+        {
+          "id": "t_p_5f2f446c6faa_3_ab95d7",
+          "original": "Tien",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_5f2f446c6faa_4_6e5cff",
+          "original": "them 5~ 6m nua",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_5f2f446c6faa_5_bf6a15",
+          "original": "RE...",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.94
+        },
+        {
+          "id": "t_p_5f2f446c6faa_6_460b7a",
+          "original": "tri kich hoat),",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_5f2f446c6faa_7_620404",
+          "original": "(vi t",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_5f2f446c6faa_8_2be7e3",
+          "original": "chac",
+          "text_type": "dialogue",
+          "reading_order": 8,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_5f2f446c6faa_9_e0665c",
+          "original": "la out...",
+          "text_type": "dialogue",
+          "reading_order": 9,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_5f2f446c6faa_10_b9476e",
+          "original": "Khi",
+          "text_type": "dialogue",
+          "reading_order": 10,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_5f2f446c6faa_11_d9e58c",
+          "original": "nang",
+          "text_type": "dialogue",
+          "reading_order": 11,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_5f2f446c6faa_12_bf6a15",
+          "original": "RE...",
+          "text_type": "dialogue",
+          "reading_order": 12,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_5f2f446c6faa_13_2f8f95",
+          "original": "nhip",
+          "text_type": "dialogue",
+          "reading_order": 13,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_5f2f446c6faa_14_6de4fb",
+          "original": "nhieu song",
+          "text_type": "dialogue",
+          "reading_order": 14,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_5f2f446c6faa_15_08756e",
+          "original": "het l",
+          "text_type": "dialogue",
+          "reading_order": 15,
+          "speaker_id_hint": null,
+          "confidence": 0.9
+        },
+        {
+          "id": "t_p_5f2f446c6faa_16_e97270",
+          "original": "hieu luc, co",
+          "text_type": "dialogue",
+          "reading_order": 16,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_5f2f446c6faa_17_bf6a15",
+          "original": "RE...",
+          "text_type": "dialogue",
+          "reading_order": 17,
+          "speaker_id_hint": null,
+          "confidence": 0.94
+        },
+        {
+          "id": "t_p_5f2f446c6faa_18_2e6fdb",
+          "original": "luc",
+          "text_type": "dialogue",
+          "reading_order": 18,
+          "speaker_id_hint": null,
+          "confidence": 0.84
+        },
+        {
+          "id": "t_p_5f2f446c6faa_19_9013a6",
+          "original": "le ta",
+          "text_type": "dialogue",
+          "reading_order": 19,
+          "speaker_id_hint": null,
+          "confidence": 0.86
+        }
+      ]
+    },
+    {
+      "id": "p_c414e7250c4c",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_c414e7250c4c_1_80671e",
+          "original": "ihuong",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_c414e7250c4c_2_cf5d3b",
+          "original": "CAONKEAE",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.53
+        },
+        {
+          "id": "t_p_c414e7250c4c_3_31374c",
+          "original": "Vay lakhoang 35m",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_c414e7250c4c_4_d9e58c",
+          "original": "nang",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_c414e7250c4c_5_dc177f",
+          "original": "uc.cua",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_c414e7250c4c_6_1a7841",
+          "original": "tu.diem.kich.hoat",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_c414e7250c4c_7_461359",
+          "original": "fa cothevuon",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.94
+        },
+        {
+          "id": "t_p_c414e7250c4c_8_7a579a",
+          "original": "xa den canh",
+          "text_type": "dialogue",
+          "reading_order": 8,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_c414e7250c4c_9_b74df3",
+          "original": "ma",
+          "text_type": "dialogue",
+          "reading_order": 9,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_c414e7250c4c_10_7b6e4d",
+          "original": "cua doi dien",
+          "text_type": "dialogue",
+          "reading_order": 10,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_c414e7250c4c_11_d1c38a",
+          "original": "225",
+          "text_type": "dialogue",
+          "reading_order": 11,
+          "speaker_id_hint": null,
+          "confidence": 0.68
+        },
+        {
+          "id": "t_p_c414e7250c4c_12_95c361",
+          "original": "conso:may.man",
+          "text_type": "dialogue",
+          "reading_order": 12,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_c414e7250c4c_13_9aaa15",
+          "original": "hanh lang",
+          "text_type": "dialogue",
+          "reading_order": 13,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        },
+        {
+          "id": "t_p_c414e7250c4c_14_901e17",
+          "original": "cua-ta",
+          "text_type": "dialogue",
+          "reading_order": 14,
+          "speaker_id_hint": null,
+          "confidence": 0.94
+        },
+        {
+          "id": "t_p_c414e7250c4c_15_722321",
+          "original": "anen.co",
+          "text_type": "dialogue",
+          "reading_order": 15,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        },
+        {
+          "id": "t_p_c414e7250c4c_16_9e4f94",
+          "original": "nay,noi dan",
+          "text_type": "dialogue",
+          "reading_order": 16,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_c414e7250c4c_17_346acd",
+          "original": "thela36m.",
+          "text_type": "dialogue",
+          "reading_order": 17,
+          "speaker_id_hint": null,
+          "confidence": 0.93
+        },
+        {
+          "id": "t_p_c414e7250c4c_18_e625a7",
+          "original": "ra loidi",
+          "text_type": "dialogue",
+          "reading_order": 18,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        },
+        {
+          "id": "t_p_c414e7250c4c_19_17f348",
+          "original": "chung V.VIP.",
+          "text_type": "dialogue",
+          "reading_order": 19,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "id": "p_c8acb8292fc5",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_c8acb8292fc5_1_64ce3f",
+          "original": "RE.",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_c8acb8292fc5_2_adf72a",
+          "original": "RE",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_c8acb8292fc5_3_adf72a",
+          "original": "RE",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "id": "p_5f0dd3207717",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_5f0dd3207717_1_682659",
+          "original": "CRE",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.63
+        },
+        {
+          "id": "t_p_5f0dd3207717_2_a87ff6",
+          "original": "4",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_5f0dd3207717_3_ff4457",
+          "original": "J",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.67
+        }
+      ]
+    },
+    {
+      "id": "p_be1faf5b0177",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_be1faf5b0177_1_d55cc9",
+          "original": "Sat nut...!!",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_be1faf5b0177_2_196db1",
+          "original": "Nhung no vuon",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_be1faf5b0177_3_9837ed",
+          "original": "toi tan cua!!",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_be1faf5b0177_4_096b5d",
+          "original": "E.",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.75
+        },
+        {
+          "id": "t_p_be1faf5b0177_5_afa555",
+          "original": "AI vAay...?",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        },
+        {
+          "id": "t_p_be1faf5b0177_6_7130fb",
+          "original": "DuOC",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 0.62
+        },
+        {
+          "id": "t_p_be1faf5b0177_7_4a01a9",
+          "original": "KHONG",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_be1faf5b0177_8_b9f52e",
+          "original": "The?",
+          "text_type": "dialogue",
+          "reading_order": 8,
+          "speaker_id_hint": null,
+          "confidence": 0.89
+        }
+      ]
+    },
+    {
+      "id": "p_cf502c82a674",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_cf502c82a674_1_c9f458",
+          "original": "HAN CAM VU",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_cf502c82a674_2_002456",
+          "original": "HAN...",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.9
+        },
+        {
+          "id": "t_p_cf502c82a674_3_796f61",
+          "original": "KHI MA QUAN",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_cf502c82a674_4_1deb29",
+          "original": "DOI HOANG GIA",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_cf502c82a674_5_e25d27",
+          "original": "LA AI",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        },
+        {
+          "id": "t_p_cf502c82a674_6_aa477e",
+          "original": "BEN DO KHONG",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 0.94
+        },
+        {
+          "id": "t_p_cf502c82a674_7_08db19",
+          "original": "VAY?...",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_cf502c82a674_8_b27cb7",
+          "original": "CO pHAn UNG",
+          "text_type": "dialogue",
+          "reading_order": 8,
+          "speaker_id_hint": null,
+          "confidence": 0.75
+        },
+        {
+          "id": "t_p_cf502c82a674_9_ec9d42",
+          "original": "NHUNG",
+          "text_type": "dialogue",
+          "reading_order": 9,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_cf502c82a674_10_574c00",
+          "original": "Gi, chAc co",
+          "text_type": "dialogue",
+          "reading_order": 10,
+          "speaker_id_hint": null,
+          "confidence": 0.84
+        },
+        {
+          "id": "t_p_cf502c82a674_11_934caa",
+          "original": "MA...",
+          "text_type": "dialogue",
+          "reading_order": 11,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_cf502c82a674_12_3f5a0c",
+          "original": "CHITHINAO DO",
+          "text_type": "dialogue",
+          "reading_order": 12,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_cf502c82a674_13_d957b7",
+          "original": "Nhi?",
+          "text_type": "dialogue",
+          "reading_order": 13,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "id": "p_a6db50020ddd",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_a6db50020ddd_1_a13644",
+          "original": "Nhung khong",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_a6db50020ddd_2_444d0a",
+          "original": "Chung",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_a6db50020ddd_3_a29dc2",
+          "original": "DUNG CAN",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_a6db50020ddd_4_b09dba",
+          "original": "phan uing...",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.93
+        },
+        {
+          "id": "t_p_a6db50020ddd_5_06bd47",
+          "original": "PHAI",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_a6db50020ddd_6_f0002c",
+          "original": "chac chan",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_a6db50020ddd_7_8b1d0d",
+          "original": "THIEPVAOCHi",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_a6db50020ddd_8_09d9d2",
+          "original": "vi quan doi",
+          "text_type": "dialogue",
+          "reading_order": 8,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_a6db50020ddd_9_056795",
+          "original": "Do",
+          "text_type": "dialogue",
+          "reading_order": 9,
+          "speaker_id_hint": null,
+          "confidence": 0.69
+        },
+        {
+          "id": "t_p_a6db50020ddd_10_b61d1c",
+          "original": "TH! Bi MAT, Lo",
+          "text_type": "dialogue",
+          "reading_order": 10,
+          "speaker_id_hint": null,
+          "confidence": 0.85
+        },
+        {
+          "id": "t_p_a6db50020ddd_11_81e6b6",
+          "original": "da thay",
+          "text_type": "dialogue",
+          "reading_order": 11,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_a6db50020ddd_12_ae7cb5",
+          "original": "CO GI THI CHi",
+          "text_type": "dialogue",
+          "reading_order": 12,
+          "speaker_id_hint": null,
+          "confidence": 0.86
+        },
+        {
+          "id": "t_p_a6db50020ddd_13_547a45",
+          "original": "hoang gia ben",
+          "text_type": "dialogue",
+          "reading_order": 13,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_a6db50020ddd_14_b97e7f",
+          "original": "CHUNG TA B!",
+          "text_type": "dialogue",
+          "reading_order": 14,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_a6db50020ddd_15_648ef0",
+          "original": "nay khong phan",
+          "text_type": "dialogue",
+          "reading_order": 15,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_a6db50020ddd_16_fdcab7",
+          "original": "ta...!",
+          "text_type": "dialogue",
+          "reading_order": 16,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_a6db50020ddd_17_05e19e",
+          "original": "ung gi.",
+          "text_type": "dialogue",
+          "reading_order": 17,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_a6db50020ddd_18_4973d5",
+          "original": "Cu De ho Lo.",
+          "text_type": "dialogue",
+          "reading_order": 18,
+          "speaker_id_hint": null,
+          "confidence": 0.83
+        }
+      ]
+    },
+    {
+      "id": "p_7f144ac2a49d",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_7f144ac2a49d_1_42a8a5",
+          "original": "Neu ta buoc ra khoi",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_7f144ac2a49d_2_19ec4f",
+          "original": "Nguoc",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_7f144ac2a49d_3_e0ec61",
+          "original": "Vay la xong!! Nang luc",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_7f144ac2a49d_4_eb39d2",
+          "original": "the gioi nang lyc hoac",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_7f144ac2a49d_5_74b0a7",
+          "original": "Mien la ta khong",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_7f144ac2a49d_6_f7a206",
+          "original": "lai,",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_7f144ac2a49d_7_336d0c",
+          "original": "cua ta co ban kinh anh",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_7f144ac2a49d_8_1b1b94",
+          "original": "giai tru \"Tuyet\", nang",
+          "text_type": "dialogue",
+          "reading_order": 8,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_7f144ac2a49d_9_ea98b6",
+          "original": "giai tru \"Tuyet\",",
+          "text_type": "dialogue",
+          "reading_order": 9,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_7f144ac2a49d_10_c295ea",
+          "original": "huong khoang 36m! Va",
+          "text_type": "dialogue",
+          "reading_order": 10,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_7f144ac2a49d_11_8ae08a",
+          "original": "luc se bi reset va",
+          "text_type": "dialogue",
+          "reading_order": 11,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_7f144ac2a49d_12_b2bfec",
+          "original": "ta co the lien tuc",
+          "text_type": "dialogue",
+          "reading_order": 12,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_7f144ac2a49d_13_fc8928",
+          "original": "\" 10 giay sat na\" khong",
+          "text_type": "dialogue",
+          "reading_order": 13,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_7f144ac2a49d_14_b0246e",
+          "original": "nhung nguoi bi anh",
+          "text_type": "dialogue",
+          "reading_order": 14,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_7f144ac2a49d_15_225d4b",
+          "original": "co tac dung voi nhung",
+          "text_type": "dialogue",
+          "reading_order": 15,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_7f144ac2a49d_16_71d8b3",
+          "original": "su dung \"10 giay",
+          "text_type": "dialogue",
+          "reading_order": 16,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_7f144ac2a49d_17_950425",
+          "original": "huong ben trong se tro",
+          "text_type": "dialogue",
+          "reading_order": 17,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_7f144ac2a49d_18_4ee5eb",
+          "original": "nguoi ben ngoai pham vi!!",
+          "text_type": "dialogue",
+          "reading_order": 18,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_7f144ac2a49d_19_6605e2",
+          "original": "sat na\" voi ranh gioi",
+          "text_type": "dialogue",
+          "reading_order": 19,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_7f144ac2a49d_20_6605a8",
+          "original": "lai binh thuong!!",
+          "text_type": "dialogue",
+          "reading_order": 20,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_7f144ac2a49d_21_36559d",
+          "original": "36m!!",
+          "text_type": "dialogue",
+          "reading_order": 21,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        }
+      ]
+    },
+    {
+      "id": "p_6fb0d03f2193",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_6fb0d03f2193_1_b43d49",
+          "original": "HANER",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.61
+        },
+        {
+          "id": "t_p_6fb0d03f2193_2_bbf397",
+          "original": "THUCTIEN",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_6fb0d03f2193_3_8a918a",
+          "original": "No:419",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.94
+        },
+        {
+          "id": "t_p_6fb0d03f2193_4_fed333",
+          "original": "1004",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_6fb0d03f2193_5_05b86e",
+          "original": "FOGASHIYOSHIHIRO",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_6fb0d03f2193_6_89bdee",
+          "original": "XIN YUI LONG",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_6fb0d03f2193_7_2de7e1",
+          "original": "GIU BiNH TiNH!!",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.85
+        }
+      ]
+    },
+    {
+      "id": "p_55fca5a7e2bc",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_55fca5a7e2bc_1_9b3976",
+          "original": "THICUAQUAN",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_55fca5a7e2bc_2_037547",
+          "original": "THIET QUAN",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_55fca5a7e2bc_3_6333c3",
+          "original": "DOI HOANG",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_55fca5a7e2bc_4_fed333",
+          "original": "1004",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_55fca5a7e2bc_5_e76754",
+          "original": "GIA!!",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_55fca5a7e2bc_6_cb73df",
+          "original": "LUAT DAC",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_55fca5a7e2bc_7_d2f7db",
+          "original": "BIET!!",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "id": "p_cd080b9ddf90",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_cd080b9ddf90_1_568fb6",
+          "original": "Phong",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_cd080b9ddf90_2_482389",
+          "original": "Chung se chang",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_cd080b9ddf90_3_93ec91",
+          "original": "Neu ta binhitinh,",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.93
+        },
+        {
+          "id": "t_p_cd080b9ddf90_4_be8b2e",
+          "original": "Hayla",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_cd080b9ddf90_5_0f71f8",
+          "original": "Phong 1006:c0 quan",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_cd080b9ddf90_6_fba9d8",
+          "original": "1002",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_cd080b9ddf90_7_cb33aa",
+          "original": "nghi ngo gi saul",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        },
+        {
+          "id": "t_p_cd080b9ddf90_8_b57afe",
+          "original": "tutindiencua,",
+          "text_type": "dialogue",
+          "reading_order": 8,
+          "speaker_id_hint": null,
+          "confidence": 0.89
+        },
+        {
+          "id": "t_p_cd080b9ddf90_9_2510c3",
+          "original": "h",
+          "text_type": "dialogue",
+          "reading_order": 9,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_cd080b9ddf90_10_69bf61",
+          "original": "bi:ten",
+          "text_type": "dialogue",
+          "reading_order": 10,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_cd080b9ddf90_11_331e56",
+          "original": "doi:r",
+          "text_type": "dialogue",
+          "reading_order": 11,
+          "speaker_id_hint": null,
+          "confidence": 0.8
+        },
+        {
+          "id": "t_p_cd080b9ddf90_12_1608fd",
+          "original": "hoanggiacanh",
+          "text_type": "dialogue",
+          "reading_order": 12,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_cd080b9ddf90_13_b5712b",
+          "original": "khongco",
+          "text_type": "dialogue",
+          "reading_order": 13,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_cd080b9ddf90_14_f2d4c5",
+          "original": "xac nhan linhicanh",
+          "text_type": "dialogue",
+          "reading_order": 14,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_cd080b9ddf90_15_dac25a",
+          "original": "iBig",
+          "text_type": "dialogue",
+          "reading_order": 15,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        },
+        {
+          "id": "t_p_cd080b9ddf90_16_847033",
+          "original": "du co lot vao goc",
+          "text_type": "dialogue",
+          "reading_order": 16,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_cd080b9ddf90_17_1ca78d",
+          "original": "Baka",
+          "text_type": "dialogue",
+          "reading_order": 17,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_cd080b9ddf90_18_34da2d",
+          "original": "khono",
+          "text_type": "dialogue",
+          "reading_order": 18,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        },
+        {
+          "id": "t_p_cd080b9ddf90_19_dcd403",
+          "original": "qae",
+          "text_type": "dialogue",
+          "reading_order": 19,
+          "speaker_id_hint": null,
+          "confidence": 0.77
+        },
+        {
+          "id": "t_p_cd080b9ddf90_20_c6e4d3",
+          "original": "xut",
+          "text_type": "dialogue",
+          "reading_order": 20,
+          "speaker_id_hint": null,
+          "confidence": 0.58
+        },
+        {
+          "id": "t_p_cd080b9ddf90_21_4b1746",
+          "original": "nguoicanh",
+          "text_type": "dialogue",
+          "reading_order": 21,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_cd080b9ddf90_22_8279e5",
+          "original": "ben nay hoan toan",
+          "text_type": "dialogue",
+          "reading_order": 22,
+          "speaker_id_hint": null,
+          "confidence": 0.93
+        },
+        {
+          "id": "t_p_cd080b9ddf90_23_78793f",
+          "original": "mat cua chung va",
+          "text_type": "dialogue",
+          "reading_order": 23,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_cd080b9ddf90_24_d4f917",
+          "original": "ne",
+          "text_type": "dialogue",
+          "reading_order": 24,
+          "speaker_id_hint": null,
+          "confidence": 0.65
+        },
+        {
+          "id": "t_p_cd080b9ddf90_25_d38af0",
+          "original": "uc",
+          "text_type": "dialogue",
+          "reading_order": 25,
+          "speaker_id_hint": null,
+          "confidence": 0.74
+        },
+        {
+          "id": "t_p_cd080b9ddf90_26_c85207",
+          "original": "cua",
+          "text_type": "dialogue",
+          "reading_order": 26,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_cd080b9ddf90_27_4178b3",
+          "original": "qac",
+          "text_type": "dialogue",
+          "reading_order": 27,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        },
+        {
+          "id": "t_p_cd080b9ddf90_28_3e5211",
+          "original": "khong.co.dong",
+          "text_type": "dialogue",
+          "reading_order": 28,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_cd080b9ddf90_29_802df3",
+          "original": "tinh",
+          "text_type": "dialogue",
+          "reading_order": 29,
+          "speaker_id_hint": null,
+          "confidence": 0.76
+        },
+        {
+          "id": "t_p_cd080b9ddf90_30_4f3792",
+          "original": "chung nhin ye",
+          "text_type": "dialogue",
+          "reading_order": 30,
+          "speaker_id_hint": null,
+          "confidence": 0.89
+        },
+        {
+          "id": "t_p_cd080b9ddf90_31_53e59f",
+          "original": "xa",
+          "text_type": "dialogue",
+          "reading_order": 31,
+          "speaker_id_hint": null,
+          "confidence": 0.9
+        },
+        {
+          "id": "t_p_cd080b9ddf90_32_020372",
+          "original": "qiam",
+          "text_type": "dialogue",
+          "reading_order": 32,
+          "speaker_id_hint": null,
+          "confidence": 0.9
+        },
+        {
+          "id": "t_p_cd080b9ddf90_33_6a2b24",
+          "original": "nao.",
+          "text_type": "dialogue",
+          "reading_order": 33,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_cd080b9ddf90_34_4c27e9",
+          "original": "phia-ta..!",
+          "text_type": "dialogue",
+          "reading_order": 34,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        },
+        {
+          "id": "t_p_cd080b9ddf90_35_ddf10d",
+          "original": "ong",
+          "text_type": "dialogue",
+          "reading_order": 35,
+          "speaker_id_hint": null,
+          "confidence": 0.89
+        },
+        {
+          "id": "t_p_cd080b9ddf90_36_1a7bca",
+          "original": ":trong",
+          "text_type": "dialogue",
+          "reading_order": 36,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_cd080b9ddf90_37_f34956",
+          "original": "khuVVIP",
+          "text_type": "dialogue",
+          "reading_order": 37,
+          "speaker_id_hint": null,
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "id": "p_40910fde598f",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_40910fde598f_1_23ab5a",
+          "original": "Cang",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_40910fde598f_2_b34fab",
+          "original": "Xa anfen",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.85
+        },
+        {
+          "id": "t_p_40910fde598f_3_ab95d7",
+          "original": "Tien",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_40910fde598f_4_6e5cff",
+          "original": "them 5~ 6m nua",
+          "text_type": "dialogue",
+          "reading_order": 4,
+          "speaker_id_hint": null,
+          "confidence": 0.96
+        },
+        {
+          "id": "t_p_40910fde598f_5_bf6a15",
+          "original": "RE...",
+          "text_type": "dialogue",
+          "reading_order": 5,
+          "speaker_id_hint": null,
+          "confidence": 0.94
+        },
+        {
+          "id": "t_p_40910fde598f_6_460b7a",
+          "original": "tri kich hoat),",
+          "text_type": "dialogue",
+          "reading_order": 6,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_40910fde598f_7_620404",
+          "original": "(vi t",
+          "text_type": "dialogue",
+          "reading_order": 7,
+          "speaker_id_hint": null,
+          "confidence": 0.91
+        },
+        {
+          "id": "t_p_40910fde598f_8_2be7e3",
+          "original": "chac",
+          "text_type": "dialogue",
+          "reading_order": 8,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_40910fde598f_9_e0665c",
+          "original": "la out...",
+          "text_type": "dialogue",
+          "reading_order": 9,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_40910fde598f_10_b9476e",
+          "original": "Khi",
+          "text_type": "dialogue",
+          "reading_order": 10,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_40910fde598f_11_d9e58c",
+          "original": "nang",
+          "text_type": "dialogue",
+          "reading_order": 11,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        },
+        {
+          "id": "t_p_40910fde598f_12_bf6a15",
+          "original": "RE...",
+          "text_type": "dialogue",
+          "reading_order": 12,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_40910fde598f_13_2f8f95",
+          "original": "nhip",
+          "text_type": "dialogue",
+          "reading_order": 13,
+          "speaker_id_hint": null,
+          "confidence": 0.99
+        },
+        {
+          "id": "t_p_40910fde598f_14_6de4fb",
+          "original": "nhieu song",
+          "text_type": "dialogue",
+          "reading_order": 14,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_40910fde598f_15_08756e",
+          "original": "het l",
+          "text_type": "dialogue",
+          "reading_order": 15,
+          "speaker_id_hint": null,
+          "confidence": 0.9
+        },
+        {
+          "id": "t_p_40910fde598f_16_e97270",
+          "original": "hieu luc, co",
+          "text_type": "dialogue",
+          "reading_order": 16,
+          "speaker_id_hint": null,
+          "confidence": 0.98
+        },
+        {
+          "id": "t_p_40910fde598f_17_bf6a15",
+          "original": "RE...",
+          "text_type": "dialogue",
+          "reading_order": 17,
+          "speaker_id_hint": null,
+          "confidence": 0.94
+        },
+        {
+          "id": "t_p_40910fde598f_18_2e6fdb",
+          "original": "luc",
+          "text_type": "dialogue",
+          "reading_order": 18,
+          "speaker_id_hint": null,
+          "confidence": 0.84
+        },
+        {
+          "id": "t_p_40910fde598f_19_9013a6",
+          "original": "le ta",
+          "text_type": "dialogue",
+          "reading_order": 19,
+          "speaker_id_hint": null,
+          "confidence": 0.86
+        }
+      ]
+    },
+    {
+      "id": "p_35711e46e897",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_35711e46e897_1_fed333",
+          "original": "1004",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 1.0
+        }
+      ]
+    },
+    {
+      "id": "p_756b563e1ec0",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_fd2e0c778c4c",
+          "original": "Dialogue at panel 17 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_5a9b48b8eaec",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_5a9b48b8eaec_1_fbb986",
+          "original": "Phu~",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.92
+        },
+        {
+          "id": "t_p_5a9b48b8eaec_2_2cf079",
+          "original": "DUOC",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.97
+        },
+        {
+          "id": "t_p_5a9b48b8eaec_3_9c244b",
+          "original": "ROI",
+          "text_type": "dialogue",
+          "reading_order": 3,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_02898e43558e",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_772f95a7cb83",
+          "original": "Dialogue at panel 19 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_29b9053b74d9",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_d6d78aa362e4",
+          "original": "Dialogue at panel 20 region 1",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "p_cbf3ebfc8ae5",
+      "cleaned_image": null,
+      "texts": [
+        {
+          "id": "t_p_cbf3ebfc8ae5_1_947ec8",
+          "original": "7.",
+          "text_type": "dialogue",
+          "reading_order": 1,
+          "speaker_id_hint": null,
+          "confidence": 0.71
+        },
+        {
+          "id": "t_p_cbf3ebfc8ae5_2_cfcd20",
+          "original": "0",
+          "text_type": "dialogue",
+          "reading_order": 2,
+          "speaker_id_hint": null,
+          "confidence": 0.61
+        }
+      ]
+    }
+  ]
+}

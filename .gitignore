@@ -1,0 +1,42 @@
+﻿# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# Pipeline generated audio & renders
+audio/*.wav
+audio/*.mp3
+audio/*.tmp.mp3
+renders/*.mp4
+exports/*/audio/*
+exports/*/panels/*
+exports/*/pages/*
+artifacts/*.tmp.json
+
+# Environment variables
+.env
+.env.local
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+.playwright-mcp/
+cache/
+

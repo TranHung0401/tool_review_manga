@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "stage": "script",
+  "chapter_id": "ch_sample",
+  "artifact_version": 1,
+  "depends_on": {
+    "stage": "ocr",
+    "artifact_version": 1,
+    "depends_on_story": null
+  },
+  "manifest": {
+    "mode": "manual_script",
+    "engine": "manual_import",
+    "timestamp": "2026-08-30T04:36:48.966341+00:00",
+    "source_file": "auto_generated",
+    "model": null,
+    "engine_version": null,
+    "quantization": null,
+    "gpu_layers": null,
+    "vision": null,
+    "model_version_seen": null,
+    "style_preset": null,
+    "cost_estimate_usd": null
+  },
+  "units": [
+    {
+      "id": "s_fc2fd52529e1",
+      "panel_id": "p_283da5a479e4",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 1.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_aef71c14e1a6",
+      "panel_id": "p_730d4d5b069f",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 2.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_1c8169594feb",
+      "panel_id": "p_e8a783d57614",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 3.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_7ed53eab7b17",
+      "panel_id": "p_3b83b4860155",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 4.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_ae546106839f",
+      "panel_id": "p_4937fe67a9d0",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 5.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_f05c710d4ebb",
+      "panel_id": "p_7c87daa27dd4",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 6.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_3cd359926dc5",
+      "panel_id": "p_f27014cf91cb",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 7.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_6fa0ee9fd76f",
+      "panel_id": "p_767f6153d31b",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 8.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_1a22d473f3b1",
+      "panel_id": "p_5afdf712f265",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 9.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_d6aff905c33c",
+      "panel_id": "p_38957713e8d1",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 10.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_4f751f071b70",
+      "panel_id": "p_fb4017493876",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 11.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_42e3c15a57ab",
+      "panel_id": "p_76e1790d6de8",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 12.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_47daf8c28953",
+      "panel_id": "p_52e407cb25b4",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 13.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_6402e35bfb39",
+      "panel_id": "p_0eb080868326",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 14.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_2aa717897d49",
+      "panel_id": "p_7ee2afaad294",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 15.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_507e277cdbbb",
+      "panel_id": "p_d8371b7bcf78",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 16.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_11b28f433532",
+      "panel_id": "p_de306ae44f3c",
+      "seq": 1,
+      "type": "narration",
+      "text": "Lời dẫn chuyện cho khung tranh 17.",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    }
+  ],
+  "unassigned": []
+}

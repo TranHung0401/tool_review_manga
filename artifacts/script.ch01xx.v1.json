@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "stage": "script",
+  "chapter_id": "ch01xx",
+  "artifact_version": 1,
+  "depends_on": {
+    "stage": "ocr",
+    "artifact_version": 1,
+    "depends_on_story": null
+  },
+  "manifest": {
+    "mode": "manual_script",
+    "engine": "manual_import",
+    "timestamp": "2026-08-30T08:01:24.744194+00:00",
+    "source_file": "auto_generated",
+    "model": null,
+    "engine_version": null,
+    "quantization": null,
+    "gpu_layers": null,
+    "vision": null,
+    "model_version_seen": null,
+    "style_preset": null,
+    "cost_estimate_usd": null
+  },
+  "units": [
+    {
+      "id": "s_b40958d8b84c",
+      "panel_id": "p_9f43d38c75c0",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "HANER THUCTIEN No:419 1004 FOGASHIYOSHIHIRO XIN YUI LONG GIU BiNH TiNH!!",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_81bf7e2e12a6",
+      "panel_id": "p_110367e4b26b",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "THICUAQUAN THIET QUAN DOI HOANG 1004 GIA!! LUAT DAC BIET!!",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_2ba087eb893c",
+      "panel_id": "p_74049e6ef06d",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Phong Chung se chang Neu ta binhitinh, Hayla Phong 1006:c0 quan 1002 nghi ngo gi saul tutindiencua, h bi:ten doi:r hoanggiacanh khongco xac nhan linhicanh iBig du co lot vao goc Baka khono qae xut nguoicanh ben nay hoan toan mat cua chung va ne uc cua qac khong.co.dong tinh chung nhin ye xa qiam nao. phia-ta..! ong :trong khuVVIP",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    },
+    {
+      "id": "s_f1063d3c995f",
+      "panel_id": "p_de1dbde9883c",
+      "seq": 1,
+      "type": "dialogue",
+      "text": "Cang Xa anfen Tien them 5~ 6m nua RE... tri kich hoat), (vi t chac la out... Khi nang RE... nhip nhieu song het l hieu luc, co RE... luc le ta",
+      "source_text_ids": [],
+      "speaker_id_hint": null
+    }
+  ],
+  "unassigned": []
+}
