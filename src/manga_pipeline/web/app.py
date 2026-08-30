@@ -12,24 +12,29 @@ from pydantic import BaseModel
 
 from manga_pipeline.connectors.local_folder import LocalFolderConnector
 from manga_pipeline.core.anchors import AnchorStore
+from manga_pipeline.core.hardware import detect_hardware
+from manga_pipeline.core.layout_resolve import layout_overrides_hash, resolve_layout
+from manga_pipeline.core.reconcile import ImageSourceChangedError, reconcile_layout
 from manga_pipeline.core.schemas.artifact_layout import LayoutArtifact
 from manga_pipeline.core.schemas.artifact_ocr import OcrArtifact
 from manga_pipeline.core.schemas.artifact_script import ScriptArtifact
 from manga_pipeline.core.schemas.artifact_tts import TtsArtifact
 from manga_pipeline.core.schemas.project_schema import (
-    AudioClip,
-    AudioTrack,
+    ChapterLayoutOverrides,
+    MergeOverride,
     ProjectSchema,
     StoryMetadata,
     TextOverride,
-    VideoClip,
-    VideoTrack,
+    UserPanelOverride,
 )
 from manga_pipeline.engines.layout.manga_image_translator import MangaImageTranslatorLayoutEngine
 from manga_pipeline.engines.ocr.manga_ocr_engine import MangaOcrEngine
 from manga_pipeline.engines.protocols import LayoutRequest, OcrRequest, ScriptRequest, TtsRequest
 from manga_pipeline.engines.script.manual_import import ManualScriptEngine
-from manga_pipeline.engines.tts.edge_tts_engine import EdgeTtsEngine
+from manga_pipeline.engines.script.translate_engine import TranslateScriptEngine
+from manga_pipeline.engines.tts.providers import TtsProviderRegistry
+from manga_pipeline.pipeline.sync import apply_resync, apply_sync_policy, compute_resync_diff
+from manga_pipeline.render.capcut_exporter import CapCutProjectExporter
 from manga_pipeline.render.ffmpeg_renderer import FFmpegRenderer
 from manga_pipeline.render.plan import RenderPlan
 from manga_pipeline.render.srt_exporter import SRTExporter
@@ -144,7 +149,7 @@ def create_app(project_dir: Path | None = None) -> FastAPI:
                 "source_type": res.source_type,
             }
         except Exception as e:
-            raise HTTPException(status_code=400, detail=str(e))
+            raise HTTPException(status_code=400, detail=str(e)) from e
 
     @app.post("/api/upload-chapter/{chapter_id}")
     async def upload_chapter_pages(
@@ -207,12 +212,15 @@ def create_app(project_dir: Path | None = None) -> FastAPI:
         chapter_id: str
         pages_path: str | None = None
         voice: str = "vi-VN-HoaiMyNeural"
+        script_mode: str = "manual_script"  # manual_script | translate
+        glossary: dict[str, str] = {}
+        target_language: str = "vi"
 
     def _write_artifact_atomically(path: Path, json_str: str) -> None:
         """Write artifact safely directly to file with retry on Windows."""
         path.parent.mkdir(parents=True, exist_ok=True)
         import time
-        for attempt in range(5):
+        for _attempt in range(5):
             try:
                 with open(path, "w", encoding="utf-8") as f:
                     f.write(json_str)
@@ -220,6 +228,20 @@ def create_app(project_dir: Path | None = None) -> FastAPI:
                 return
             except OSError:
                 time.sleep(0.1)
+
+    def _latest_artifact_version(stage: str, chapter_id: str) -> int:
+        """Find highest existing artifact version for stage/chapter (0 if none)."""
+        artifacts_dir = p_dir / "artifacts"
+        if not artifacts_dir.exists():
+            return 0
+        best = 0
+        prefix = f"{stage}.{chapter_id}.v"
+        for f in artifacts_dir.glob(f"{stage}.{chapter_id}.v*.json"):
+            try:
+                best = max(best, int(f.name[len(prefix):-5]))
+            except ValueError:
+                continue
+        return best
 
     def _safe_load_artifact(path: Path, model_cls: Any) -> Any:
         """Load artifact safely; returns None if file is missing, empty, or invalid."""
@@ -294,9 +316,15 @@ def create_app(project_dir: Path | None = None) -> FastAPI:
                         if not store.find_by_ai_id(tr.id, kind="text"):
                             store.create_anchor("text", tr.id)
 
+            # Pre-OCR mandatory workflow: OCR runs on the RESOLVED layout
+            # (auto-detect + user layout overrides: delete/merge/draw/reorder)
+            resolved_layout = resolve_layout(layout_art, project, chapter_id)
             ocr_engine = MangaOcrEngine()
             ocr_res = ocr_engine.extract(
-                OcrRequest(chapter_id=chapter_id, layout_artifact=layout_art, pages_dir=pages_dir)
+                OcrRequest(chapter_id=chapter_id, layout_artifact=resolved_layout, pages_dir=pages_dir)
+            )
+            ocr_res.artifact.depends_on.layout_overrides_hash = layout_overrides_hash(
+                project.layout_overrides.get(chapter_id)
             )
             o_path = artifacts_dir / f"ocr.{chapter_id}.v1.json"
             _write_artifact_atomically(o_path, ocr_res.artifact.model_dump_json(indent=2))
@@ -322,10 +350,22 @@ def create_app(project_dir: Path | None = None) -> FastAPI:
                 ocr_art = ocr_res.artifact
                 _write_artifact_atomically(o_path, ocr_art.model_dump_json(indent=2))
 
-            script_engine = ManualScriptEngine()
-            script_res = script_engine.produce(
-                ScriptRequest(chapter_id=chapter_id, mode="manual_script", ocr_artifact=ocr_art)
-            )
+            if req.script_mode == "translate":
+                script_engine: Any = TranslateScriptEngine()
+                script_res = script_engine.produce(
+                    ScriptRequest(
+                        chapter_id=chapter_id,
+                        mode="translate",
+                        ocr_artifact=ocr_art,
+                        target_language=req.target_language,
+                        glossary=req.glossary,
+                    )
+                )
+            else:
+                script_engine = ManualScriptEngine()
+                script_res = script_engine.produce(
+                    ScriptRequest(chapter_id=chapter_id, mode="manual_script", ocr_artifact=ocr_art)
+                )
             s_path = artifacts_dir / f"script.{chapter_id}.v1.json"
             _write_artifact_atomically(s_path, script_res.artifact.model_dump_json(indent=2))
             for u in script_res.artifact.units:
@@ -349,49 +389,44 @@ def create_app(project_dir: Path | None = None) -> FastAPI:
                     if override_val is not None:
                         unit.text = override_val
 
-            tts_engine = EdgeTtsEngine()
-            tts_res = tts_engine.synthesize(
+            # Immutable artifacts: every TTS re-run writes a NEW version.
+            next_version = _latest_artifact_version("tts", chapter_id) + 1
+            registry = TtsProviderRegistry()
+            tts_res = registry.synthesize(
                 TtsRequest(
                     chapter_id=chapter_id,
                     script_artifact=script_art,
                     audio_output_dir=p_dir / "audio",
-                    artifact_version=1,
+                    artifact_version=next_version,
                     voice_ref=req.voice,
                 )
             )
-            t_path = artifacts_dir / f"tts.{chapter_id}.v1.json"
+            t_path = artifacts_dir / f"tts.{chapter_id}.v{next_version}.json"
             _write_artifact_atomically(t_path, tts_res.artifact.model_dump_json(indent=2))
-            project.active_artifacts[chapter_id]["tts"] = 1
+            # Snapshot rule: only auto-activate + sync on FIRST version.
+            # Later versions wait for explicit user Resync (see /api/resync).
+            if next_version == 1:
+                project.active_artifacts[chapter_id]["tts"] = 1
+                apply_sync_policy(project, chapter_id, tts_res.artifact)
             _save_project(project)
 
         if stage in {"render", "run_all"}:
             l_path = artifacts_dir / f"layout.{chapter_id}.v1.json"
-            t_path = artifacts_dir / f"tts.{chapter_id}.v1.json"
+            active_tts_v = project.active_artifacts.get(chapter_id, {}).get("tts", 1)
+            t_path = artifacts_dir / f"tts.{chapter_id}.v{active_tts_v}.json"
             l_art = _safe_load_artifact(l_path, LayoutArtifact)
             t_art = _safe_load_artifact(t_path, TtsArtifact)
 
             if not l_art or not t_art:
                 raise HTTPException(status_code=400, detail="Cần hoàn thành Layout và TTS trước khi Render video.")
 
-            panel_anchors = list(store.get_by_kind("panel").keys())
-            unit_anchors = list(store.get_by_kind("unit").keys())
-
-            if not project.sequence.video_tracks and panel_anchors:
-                vclips = [
-                    VideoClip(panel_ref=pa, start_ms=i * 3000, duration_ms=3000)
-                    for i, pa in enumerate(panel_anchors)
-                ]
-                project.sequence.video_tracks = [VideoTrack(clips=vclips)]
-
-            if not project.sequence.audio_tracks and unit_anchors:
-                aclips = [
-                    AudioClip(audio_ref=sa, start_ms=i * 3000, synced_duration_ms=2500)
-                    for i, sa in enumerate(unit_anchors)
-                ]
-                project.sequence.audio_tracks = [AudioTrack(clips=aclips)]
+            # Sync policy: duration = max(min_duration, audio + padding)
+            if not project.sequence.video_tracks or not project.sequence.audio_tracks:
+                apply_sync_policy(project, chapter_id, t_art)
 
             _save_project(project)
 
+            l_art = resolve_layout(l_art, project, chapter_id)
             plan = RenderPlan.from_project(chapter_id, project, l_art, t_art)
             renderer = FFmpegRenderer()
             out_mp4 = p_dir / "renders" / f"{chapter_id}.mp4"
@@ -627,6 +662,287 @@ def create_app(project_dir: Path | None = None) -> FastAPI:
 
         _save_project(proj)
         return {"status": "success", "total_reordered": len(payload.ordered_anchors)}
+
+    # ------------------------------------------------------------------
+    # Layout Editor (Sprint 2) — delete / merge / draw / reading order.
+    # All operations write layout_overrides in project.json (anchor refs only);
+    # the AI layout artifact stays immutable.
+    # ------------------------------------------------------------------
+
+    def _chapter_overrides(proj: ProjectSchema, chapter_id: str) -> ChapterLayoutOverrides:
+        if chapter_id not in proj.layout_overrides:
+            proj.layout_overrides[chapter_id] = ChapterLayoutOverrides()
+        return proj.layout_overrides[chapter_id]
+
+    class DeletePanelsPayload(BaseModel):
+        chapter_id: str
+        panel_anchors: list[str]
+
+    @app.post("/api/layout/delete-panels")
+    def layout_delete_panels(payload: DeletePanelsPayload) -> dict[str, Any]:
+        """Mark panels as deleted (pre-OCR layout editing)."""
+        proj = _get_project()
+        ov = _chapter_overrides(proj, payload.chapter_id)
+        for a in payload.panel_anchors:
+            if not a.startswith("pa_"):
+                raise HTTPException(status_code=400, detail=f"'{a}' không phải anchor pa_...")
+            if a not in ov.deleted_panels:
+                ov.deleted_panels.append(a)
+        _save_project(proj)
+        return {"status": "success", "deleted_panels": ov.deleted_panels}
+
+    class MergePanelsPayload(BaseModel):
+        chapter_id: str
+        into: str
+        from_anchors: list[str]
+
+    @app.post("/api/layout/merge-panels")
+    def layout_merge_panels(payload: MergePanelsPayload) -> dict[str, Any]:
+        """Merge panels into a target panel (union bbox at resolve time)."""
+        proj = _get_project()
+        ov = _chapter_overrides(proj, payload.chapter_id)
+        ov.merged.append(MergeOverride(into=payload.into, **{"from": payload.from_anchors}))
+        _save_project(proj)
+        return {"status": "success", "merged": [m.model_dump(by_alias=True) for m in ov.merged]}
+
+    class DrawPanelPayload(BaseModel):
+        chapter_id: str
+        image: str
+        bbox: list[int]
+        reading_order: int
+
+    @app.post("/api/layout/draw-panel")
+    def layout_draw_panel(payload: DrawPanelPayload) -> dict[str, Any]:
+        """Add a user hand-drawn panel (locked anchor, never auto-remapped)."""
+        if len(payload.bbox) != 4:
+            raise HTTPException(status_code=400, detail="bbox phải là [x, y, w, h]")
+        proj = _get_project()
+        store = AnchorStore(proj)
+        from manga_pipeline.core.ids import panel_id as _make_pid
+
+        ai_id = _make_pid(payload.image, payload.bbox)
+        anchor = store.create_anchor("panel", ai_id, locked=True)
+        ov = _chapter_overrides(proj, payload.chapter_id)
+        ov.user_panels.append(
+            UserPanelOverride(
+                anchor=anchor,
+                source={"image": payload.image, "bbox": payload.bbox},  # type: ignore[arg-type]
+                reading_order=payload.reading_order,
+                locked=True,
+            )
+        )
+        _save_project(proj)
+        return {"status": "success", "anchor": anchor, "ai_id": ai_id}
+
+    class ReadingOrderPayload(BaseModel):
+        chapter_id: str
+        orders: dict[str, int]
+
+    @app.post("/api/layout/reading-order")
+    def layout_reading_order(payload: ReadingOrderPayload) -> dict[str, Any]:
+        """Override panel reading order (pa_ anchor -> new order)."""
+        proj = _get_project()
+        ov = _chapter_overrides(proj, payload.chapter_id)
+        ov.reading_order_overrides.update(payload.orders)
+        _save_project(proj)
+        return {"status": "success", "reading_order_overrides": ov.reading_order_overrides}
+
+    @app.get("/api/layout/resolved/{chapter_id}")
+    def get_resolved_layout(chapter_id: str) -> dict[str, Any]:
+        """Return the resolved layout (AI layout + user overrides applied)."""
+        proj = _get_project()
+        l_path = p_dir / "artifacts" / f"layout.{chapter_id}.v1.json"
+        l_art = _safe_load_artifact(l_path, LayoutArtifact)
+        if not l_art:
+            raise HTTPException(status_code=404, detail="Chưa có layout artifact.")
+        resolved = resolve_layout(l_art, proj, chapter_id)
+        _save_project(proj)  # resolve may update user panel anchor mappings
+        return resolved.model_dump()
+
+    # ------------------------------------------------------------------
+    # Import Layer + Reconcile (Sprint 2) — anchor remap + orphaned UI
+    # ------------------------------------------------------------------
+
+    class ReconcilePayload(BaseModel):
+        chapter_id: str
+        new_version: int
+        mode: str = "guided"  # guided | merge | reset
+
+    @app.post("/api/reconcile/layout")
+    def reconcile_layout_api(payload: ReconcilePayload) -> dict[str, Any]:
+        """Explicit import of a new layout artifact version through reconcile.
+
+        Anchors are remapped (exact ID -> IoU >= 0.6); unmatched anchors go to
+        the orphaned list — overrides/clips attached to them are never lost.
+        """
+        proj = _get_project()
+        store = AnchorStore(proj)
+        artifacts_dir = p_dir / "artifacts"
+
+        new_path = artifacts_dir / f"layout.{payload.chapter_id}.v{payload.new_version}.json"
+        new_art = _safe_load_artifact(new_path, LayoutArtifact)
+        if not new_art:
+            raise HTTPException(status_code=404, detail=f"Không tìm thấy {new_path.name}")
+
+        old_version = proj.active_artifacts.get(payload.chapter_id, {}).get("layout", 0)
+        old_art = None
+        if old_version:
+            old_path = artifacts_dir / f"layout.{payload.chapter_id}.v{old_version}.json"
+            old_art = _safe_load_artifact(old_path, LayoutArtifact)
+
+        try:
+            result = reconcile_layout(
+                old_art,
+                new_art,
+                store,
+                proj.layout_overrides.get(payload.chapter_id),
+                mode=payload.mode,  # type: ignore[arg-type]
+            )
+        except ImageSourceChangedError as e:
+            return {
+                "status": "requires_confirmation",
+                "detail": str(e),
+                "hint": "Gọi lại với mode='merge' để giữ anchors orphaned, hoặc mode='reset' để retire.",
+            }
+
+        proj.active_artifacts.setdefault(payload.chapter_id, {})["layout"] = payload.new_version
+        _save_project(proj)
+        return {
+            "status": "success",
+            "matched_exact": result.matched_exact,
+            "remapped": [
+                {"anchor": a, "old_id": o, "new_id": n, "iou": round(i, 3)}
+                for a, o, n, i in result.remapped
+            ],
+            "orphaned": result.orphaned,
+            "new_anchors": result.new_anchors,
+            "warnings": result.warnings,
+        }
+
+    @app.get("/api/anchors/orphaned")
+    def list_orphaned_anchors() -> dict[str, Any]:
+        """Surface orphaned anchors (with attached overrides) for the review UI."""
+        proj = _get_project()
+        artifacts_dir = p_dir / "artifacts"
+        live_ids: set[str] = set()
+        for f in artifacts_dir.glob("layout.*.json") if artifacts_dir.exists() else []:
+            art = _safe_load_artifact(f, LayoutArtifact)
+            if art:
+                live_ids.update(p.id for p in art.panels)
+                for p in art.panels:
+                    live_ids.update(tr.id for tr in p.text_regions)
+
+        orphaned = []
+        for aid, entry in proj.anchors.items():
+            if entry.retired or entry.locked:
+                continue
+            if entry.kind == "panel" and live_ids and entry.current not in live_ids:
+                orphaned.append(
+                    {
+                        "anchor": aid,
+                        "kind": entry.kind,
+                        "current": entry.current,
+                        "history": entry.history,
+                        "has_override": aid in proj.overrides,
+                    }
+                )
+        return {"orphaned": orphaned, "total": len(orphaned)}
+
+    class RemapAnchorPayload(BaseModel):
+        anchor_id: str
+        new_ai_id: str
+
+    @app.post("/api/anchors/remap")
+    def remap_anchor(payload: RemapAnchorPayload) -> dict[str, Any]:
+        """Manually remap an orphaned anchor to a new AI ID (user decision)."""
+        proj = _get_project()
+        store = AnchorStore(proj)
+        try:
+            store.update_current(payload.anchor_id, payload.new_ai_id)
+        except KeyError as e:
+            raise HTTPException(status_code=404, detail=str(e)) from e
+        _save_project(proj)
+        return {"status": "success", "anchor": payload.anchor_id, "current": payload.new_ai_id}
+
+    @app.post("/api/anchors/{anchor_id}/retire")
+    def retire_anchor(anchor_id: str) -> dict[str, Any]:
+        """Retire an anchor (never deleted — overrides remain recoverable)."""
+        proj = _get_project()
+        store = AnchorStore(proj)
+        try:
+            store.retire(anchor_id)
+        except KeyError as e:
+            raise HTTPException(status_code=404, detail=str(e)) from e
+        _save_project(proj)
+        return {"status": "success", "anchor": anchor_id, "retired": True}
+
+    # ------------------------------------------------------------------
+    # Timeline Resync (Sprint 4) — diff review + explicit confirmation
+    # ------------------------------------------------------------------
+
+    @app.get("/api/resync/{chapter_id}/diff")
+    def resync_diff(chapter_id: str, version: int = Query(...)) -> dict[str, Any]:
+        """Preview timeline changes if the given TTS version were applied."""
+        proj = _get_project()
+        t_path = p_dir / "artifacts" / f"tts.{chapter_id}.v{version}.json"
+        t_art = _safe_load_artifact(t_path, TtsArtifact)
+        if not t_art:
+            raise HTTPException(status_code=404, detail=f"Không tìm thấy {t_path.name}")
+        return compute_resync_diff(proj, chapter_id, t_art).to_dict()
+
+    class ResyncApplyPayload(BaseModel):
+        chapter_id: str
+        version: int
+
+    @app.post("/api/resync/apply")
+    def resync_apply(payload: ResyncApplyPayload) -> dict[str, Any]:
+        """User-confirmed Resync: update duration snapshots + re-layout starts."""
+        proj = _get_project()
+        t_path = p_dir / "artifacts" / f"tts.{payload.chapter_id}.v{payload.version}.json"
+        t_art = _safe_load_artifact(t_path, TtsArtifact)
+        if not t_art:
+            raise HTTPException(status_code=404, detail=f"Không tìm thấy {t_path.name}")
+        proj, diff = apply_resync(proj, payload.chapter_id, t_art)
+        _save_project(proj)
+        return {"status": "success", "applied": diff.to_dict()}
+
+    # ------------------------------------------------------------------
+    # CapCut Project Export (Sprint 3)
+    # ------------------------------------------------------------------
+
+    @app.post("/api/export-capcut/{chapter_id}")
+    def export_capcut_project(chapter_id: str, capcut_version: str = Query("5.9.0")) -> dict[str, Any]:
+        """Export a CapCut PC draft bundle from the deterministic RenderPlan."""
+        proj = _get_project()
+        artifacts_dir = p_dir / "artifacts"
+        l_art = _safe_load_artifact(artifacts_dir / f"layout.{chapter_id}.v1.json", LayoutArtifact)
+        active_tts_v = proj.active_artifacts.get(chapter_id, {}).get("tts", 1)
+        t_art = _safe_load_artifact(artifacts_dir / f"tts.{chapter_id}.v{active_tts_v}.json", TtsArtifact)
+        if not l_art:
+            raise HTTPException(status_code=400, detail="Cần chạy Layout trước khi export CapCut.")
+
+        if t_art and (not proj.sequence.video_tracks or not proj.sequence.audio_tracks):
+            apply_sync_policy(proj, chapter_id, t_art)
+            _save_project(proj)
+
+        resolved = resolve_layout(l_art, proj, chapter_id)
+        plan = RenderPlan.from_project(chapter_id, proj, resolved, t_art)
+        exporter = CapCutProjectExporter(p_dir / "exports", capcut_version=capcut_version)
+        return exporter.export(plan, project_dir=p_dir)
+
+    # ------------------------------------------------------------------
+    # Hardware & TTS providers info
+    # ------------------------------------------------------------------
+
+    @app.get("/api/hardware")
+    def hardware_info() -> dict[str, Any]:
+        """Detected hardware profile (NVENC, VRAM, RAM, gpu_layers auto)."""
+        return detect_hardware().to_dict()
+
+    @app.get("/api/tts/providers")
+    def tts_providers() -> dict[str, Any]:
+        """List registered TTS providers (multi-provider adapter)."""
+        return {"providers": TtsProviderRegistry().providers(), "default": "edge", "fallback": "local-silence"}
 
     class SettingsPayload(BaseModel):
         capcut_dir: str | None = None

@@ -115,10 +115,13 @@ def test_render_plan_deterministic_json() -> None:
     assert plan1.total_duration_ms == 5000
 
 
-def test_capcut_exporter_stub(tmp_path: Path) -> None:
+def test_capcut_exporter_golden_serialization(tmp_path: Path) -> None:
+    """DoD (g): RenderPlan serializes into a CapCut export bundle + report."""
     exporter = CapCutProjectExporter(tmp_path)
     plan = RenderPlan(chapter_id="ch01")
     result = exporter.export(plan)
 
-    assert result["status"] == "stub"
-    assert result["sprint_milestone"] == 3
+    assert result["status"] == "success"
+    assert result["chapter_id"] == "ch01"
+    assert (tmp_path / "ch01_capcut" / "draft_content.json").exists()
+    assert (tmp_path / "ch01_capcut" / "export_report.json").exists()
